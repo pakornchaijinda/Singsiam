@@ -1,0 +1,81 @@
+body[b-wvmpihx1ju] {
+    background: #3399ff;
+}
+
+
+.circle[b-wvmpihx1ju] {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    animation: ripple-b-wvmpihx1ju 15s infinite;
+    box-shadow: 0px 0px 1px 0px #508fb9;
+}
+
+.small[b-wvmpihx1ju] {
+    width: 200px;
+    height: 200px;
+    left: -100px;
+    bottom: -100px;
+}
+
+.medium[b-wvmpihx1ju] {
+    width: 400px;
+    height: 400px;
+    left: -200px;
+    bottom: -200px;
+}
+
+.large[b-wvmpihx1ju] {
+    width: 600px;
+    height: 600px;
+    left: -300px;
+    bottom: -300px;
+}
+
+.xlarge[b-wvmpihx1ju] {
+    width: 800px;
+    height: 800px;
+    left: -400px;
+    bottom: -400px;
+}
+
+.xxlarge[b-wvmpihx1ju] {
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    bottom: -500px;
+}
+
+.shade1[b-wvmpihx1ju] {
+    opacity: 0.2;
+}
+
+.shade2[b-wvmpihx1ju] {
+    opacity: 0.5;
+}
+
+.shade3[b-wvmpihx1ju] {
+    opacity: 0.7;
+}
+
+.shade4[b-wvmpihx1ju] {
+    opacity: 0.8;
+}
+
+.shade5[b-wvmpihx1ju] {
+    opacity: 0.9;
+}
+
+@keyframes ripple-b-wvmpihx1ju {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(0.8);
+    }
+}

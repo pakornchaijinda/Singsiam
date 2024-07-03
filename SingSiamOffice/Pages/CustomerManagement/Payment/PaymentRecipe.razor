@@ -1,0 +1,422 @@
+﻿@page "/paymentrecipe/{peroidtran_id:int}"
+@* <h3>PaymentRecipe</h3> *@
+
+
+<style>
+ 
+    .receipt {
+        padding: 3mm;
+        width: 80mm;
+        border: 1px solid black;
+    }
+
+    .orderNo {
+        width: 100%;
+        text-align: right;
+        padding-bottom: 1mm;
+        font-size: 8pt;
+        font-weight: bold;
+    }
+
+        .orderNo:empty {
+            display: none;
+        }
+
+    .headerSubTitle {
+        font-family: "Bai Jamjuree", sans-serif;
+        /* text-align: center; */
+        font-size: 10pt;
+    }
+
+    .headerTitle {
+        font-family: "Bai Jamjuree", sans-serif;
+        text-align: center;
+        font-size: 14pt;
+        font-weight: bold;
+    }
+
+    #location {
+        margin-top: 5pt;
+        text-align: center;
+        font-size: 16pt;
+        font-weight: bold;
+    }
+
+    #date {
+        margin: 5pt 0px;
+        text-align: center;
+        font-size: 8pt;
+    }
+
+    #barcode {
+        display: block;
+        margin: 0px auto;
+    }
+
+        #barcode:empty {
+            display: none;
+        }
+
+    .watermark {
+        position: absolute;
+        left: 7mm;
+        top: 60mm;
+        width: 75mm;
+        opacity: 0.1;
+    }
+
+    .keepIt {
+        text-align: center;
+        font-size: 12pt;
+        font-weight: bold;
+    }
+
+    .keepItBody {
+        text-align: justify;
+        font-size: 8pt;
+    }
+
+    .item {
+        margin-bottom: 1mm;
+    }
+
+    .itemRow {
+        display: flex;
+        font-size: 8pt;
+        align-items: baseline;
+    }
+
+        .itemRow > div {
+            align-items: baseline;
+        }
+
+    .itemName {
+        font-weight: bold;
+    }
+
+    .itemPrice {
+        text-align: right;
+        flex-grow: 1;
+    }
+
+    .itemColor {
+        width: 10px;
+        height: 100%;
+        background: yellow;
+        margin: 0px 2px;
+        padding: 0px;
+    }
+
+        .itemColor:before {
+            content: "\00a0";
+        }
+
+
+    .itemData2 {
+        text-align: right;
+        flex-grow: 1;
+    }
+
+    .itemData3 {
+        width: 15mm;
+        text-align: right;
+    }
+
+    .itemQuantity:before {
+        content: "x";
+    }
+
+    .itemTaxable:after {
+        content: " T";
+    }
+
+    .flex {
+        display: flex;
+        justify-content: center;
+    }
+
+    #qrcode {
+        align-self: center;
+        flex: 0 0 100px
+    }
+
+    .totals {
+        flex-grow: 1;
+        align-self: center;
+        font-size: 8pt;
+    }
+
+        .totals .row {
+            display: flex;
+            text-align: right;
+        }
+
+        .totals .section {
+            padding-top: 2mm;
+        }
+
+    .totalRow > div, .total > div {
+        text-align: right;
+        align-items: baseline;
+        font-size: 8pt;
+    }
+
+    .totals .col1 {
+        text-align: right;
+        flex-grow: 1;
+    }
+
+    .totals .col2 {
+        width: 22mm;
+    }
+
+        .totals .col2:empty {
+            display: none;
+        }
+
+    .totals .col3 {
+        width: 15mm;
+    }
+
+    .footer {
+        overflow: hidden;
+        margin-top: 5mm;
+        border-radius: 7px;
+        width: 100%;
+        background: black;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+        .footer:empty {
+            display: none;
+        }
+
+    .eta {
+        padding: 1mm 0px;
+    }
+
+        .eta:empty {
+            display: none;
+        }
+
+        .eta:before {
+            content: "Estimated time order will be ready: ";
+            font-size: 8pt;
+            display: block;
+        }
+
+    .etaLabel {
+        font-size: 8pt;
+    }
+
+    .printType {
+        padding: 1mm 0px;
+        width: 100%;
+        background: grey;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .about {
+        font-size: 12pt;
+        overflow: hidden;
+        background: #FCEC52;
+        color: #3A5743;
+        border-radius: 7px;
+        padding: 0px;
+        position: absolute;
+        width: 500px;
+        text-align: center;
+        left: 50%;
+        margin-top: 50px;
+        margin-left: -250px;
+    }
+
+    .arrow_box h3, ul {
+        margin: 5px;
+    }
+
+    .about li {
+        text-align: left;
+    }
+
+    .arrow_box {
+        position: absolute;
+        background: #88b7d5;
+        padding: 5px;
+        margin-top: 20px;
+        left: 95mm;
+        top: 2;
+        width: 500px;
+        border: 4px solid #c2e1f5;
+    }
+
+        .arrow_box:after, .arrow_box:before {
+            right: 100%;
+            top: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .arrow_box:after {
+            border-color: rgba(136, 183, 213, 0);
+            border-right-color: #88b7d5;
+            border-width: 30px;
+            margin-top: -30px;
+        }
+
+        .arrow_box:before {
+            border-color: rgba(194, 225, 245, 0);
+            border-right-color: #c2e1f5;
+            border-width: 36px;
+            margin-top: -36px;
+        }
+        .line{
+            text-decoration:dashed;
+        }
+</style>
+
+
+<!-- START RECEIPT -->
+<div id="printableArea" class="receipt">
+   @*  <img class="watermark" src="https://www.dropbox.com/s/mmf6y9rpibwy9tk/bronyhouse-logo-sm.svg?raw=1">
+    <div class="orderNo">
+        Parking ID# <span id="Order #">71</span>: <span id="Order Name">Jet Set</span>
+    </div> *@
+   
+    <div class="headerSubTitle" style="text-align: center;">
+        <img src="img/icons/SingCircle.png" alt="" style="width:8rem;">
+    </div>
+   @*  <div class="headerSubTitle">
+        Parking Receipt
+    </div> *@
+    <div class="headerTitle">
+        บริษัท สิงห์สยาม ลิสซิ่ง จำกัด
+    </div>
+    <div class="headerTitle">
+        เลขประจำตัวผู้เสียภาษี 0365561000591
+    </div>
+    <div class="headerTitle">
+        ใบเสร็จรับเงิน
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <MudStack Row="true" Spacing="5">
+                <div class="headerSubTitle">
+                    วันที่: @receipt.daypaid
+                </div>
+                <div class="headerSubTitle">
+                    บิลเลขที่: @receipt.receipt_no
+                </div>
+            </MudStack>
+        </div>
+    </div>
+    <div class="headerSubTitle">
+        สัญญาเลขที่: @receipt.promise_no
+    </div>
+    <div class="headerSubTitle">
+        ชื่อ-นามสกุล: @receipt.fullname
+    </div>
+    <div class="headerSubTitle">
+        ที่อยู่: @receipt.address
+    </div>
+    <div class="headerSubTitle">
+        ประเภท: @receipt.product
+    </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">งวดที่</th>
+                <th scope="col">รายการ</th>
+                <th scope="col">รวมเงิน</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var items in lst_receiptdescs)
+            {
+                <tr>
+                    <th scope="row">@items.Periodtran.Period/@items.Promise.Periods</th>
+                    <td>@items.Receipttran.Receiptdesc</td>
+                    @if(items.Deposit != 0)
+                    {
+
+                        <td>@items.Deposit </td>
+                    }
+                    else
+                    {
+
+                        <td>@items.Amount </td>
+                    }
+
+                </tr>
+            }
+           
+         
+         
+        </tbody>
+     
+        <tfoot>
+            @if (receipt.ck_total_fee)
+            {
+                <tr>
+                    <th colspan="2" scope="row">ชำระค่าปรับ</th>
+                    <td>@receipt.total_fee</td>
+                </tr>
+                
+            }
+       
+        </tfoot>
+        
+    </table>
+
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <MudStack Row="true" Spacing="5">
+                <div class="headerSubTitle" style="font-weight:bold; ">
+                    ชำระโดย: @receipt.paid_by
+                </div>
+                <div class="headerSubTitle" style="font-weight:bold; text-align:end;">
+                    รวมเงิน: @receipt.total_amount บาท
+                </div>
+            </MudStack>
+            <div class="headerSubTitle" style="font-weight:bold; text-align:center;">
+                = @receipt.amount_text =
+            </div>
+            <hr class="line"/>
+            <div class="headerSubTitle" style="font-weight:bold; text-align:start;">
+                งวดคงเหลิอ: @receipt.peroid_remain งวด  
+            </div>
+            <br/>
+            <div class="headerSubTitle" style="font-weight:bold; text-align:center;">
+                ลงชื่อ....................................................ผู้รับเงิน
+            </div>
+            <div class="headerSubTitle" style="font-weight:bold; text-align:center;">
+                (  @receipt.receive_by  )
+            </div>
+        </div>
+    </div>
+
+    <!-- Items Purchased -->
+   
+  @*   <div class="keepIt">
+        Keep your receipt!
+    </div> *@
+    
+</div>
+
+@code {
+
+}

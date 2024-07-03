@@ -1,0 +1,126 @@
+﻿@page "/view-employee/{employee_id:int}"
+@using Models
+@using Microsoft.EntityFrameworkCore
+<Navbar></Navbar>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+   
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/edit.svg" alt="" style="width:3rem;"> ดูข้อมูลพนักงาน</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mt-4 mb-4">
+                        <MudText Typo="Typo.h5" Style="@headertext">ข้อมูลพนักงาน</MudText>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <label>รหัสพนักงาน</label>
+                        <span class="form-control">@to_view.Code</span>
+                     </div>
+
+                    <div class="col-md-6 pb-3">
+                        <label>ชื่อ - นามสกุล</label>
+                        <span class="form-control">@to_view.Fullname</span>
+                       
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <label>ชื่อเล่น</label>
+                        <span class="form-control">@to_view.EmNickname</span>
+                        
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <label>ตำแหน่ง</label>
+                        <span class="form-control">@to_view.Position</span>
+
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <label>เบอร์โทรติดต่อ</label>
+                        <span class="form-control">@to_view.Phone</span>
+
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <label>ที่อยู่</label>
+                        <span class="form-control">@to_view.Address</span>
+
+                        
+                    </div>
+                   
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 pb-3 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mt-3 mb-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <img class="rounded-circle" src="@to_view.Img" width="25%;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <label>ตำแหน่ง</label>
+                        <span class="form-control">@to_view.Role.RoleName</span>
+                     
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <label>สาขา</label>
+                        <span class="form-control">@to_view.Branch.BranchName</span>
+                     
+                    </div>
+                   
+                </div>
+    
+            </div>
+        </div>
+        <div class="row">
+           
+            <div class="col-md-12 mt-4 mb-4 text-center">
+                <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goBack()">ย้อนกลับ</MudButton>
+            
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+
+
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    [Parameter]
+    public int employee_id { get; set; }
+    Login to_view = new Login();
+    SingsiamdbContext db = new SingsiamdbContext();
+    protected override async Task OnInitializedAsync()
+    {
+        to_view = db.Logins.Include(s=>s.Role).Include(s=>s.Branch).Where(s => s.Id == employee_id).FirstOrDefault();
+       
+    }
+}

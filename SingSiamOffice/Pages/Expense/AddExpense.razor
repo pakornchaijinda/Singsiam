@@ -1,0 +1,274 @@
+﻿@page "/add-expense/{b_id:int}"
+@using SingSiamOffice.Manage
+@using SingSiamOffice.Models;
+@* <h3>AddExpense</h3> *@
+@using Models;
+@using Microsoft.EntityFrameworkCore;
+@using System.Text;
+@inject ISnackbar Snackbar
+@inject UserLoginService userLoginService
+
+<Navbar2></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/add.svg" alt="" style="width:3rem;"> เพิ่มรายการรายรับ - รายจ่าย</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 pb-3">
+                        <MudSelect @bind-Value="subject_Id" Label="รหัสบัญชีรายการธุรกรรม" Margin="Margin.Dense" Variant="Variant.Outlined" Clearable>
+                            @if(list_subject != null){
+                                  @foreach(var data in list_subject){
+                                    <MudSelectItem Value="@(data.SubjectId)">@data.SubjectCode | @data.SubjectName</MudSelectItem>
+                                  }                              
+                            }
+                         
+                        </MudSelect>
+                      @*   <MudAutocomplete T="string" Label="รหัสบัญชีรายการธุรกรรม" @bind-Value="accountType" Margin="Margin.Dense" SearchFunc="@SearchAccountType" /> *@
+
+                    </div>
+                    
+                    <div class="col-md-12 pb-3">
+             
+                        @if (subject_Id == 4)
+                        {
+                            
+                            <div class="row">
+                                <div class="col-md-12 pb-3">
+                                    <MudText Typo="Typo.body1" Style="@imporText">ยอดเงินคงเหลือทั้งหมดของสาขา : <span style="color:green; font-weight:600;">100000</span> บาท</MudText>
+                                </div>
+                                <hr />
+                                <div class="col-md-12 pb-3">
+                                    <MudAutocomplete T="Branch" @bind-Value="selectBranch" Label="ระบุสาขาที่ต้องการโอนเงิน" SearchFunc="@SearchBranch" ToStringFunc="@(e=> e==null?null : $"{e.BranchName} | {e.BranchCode}")" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" Clearable />
+                                </div>
+                           
+                               
+                                <div class="row">
+                                    <div class="col-md-6 pb-3">
+                                         <MudTextField @bind-Value="name" Label="เลขที่อ้างอิง" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly Style="@buttoncollape"></MudTextField>
+                                    </div>
+                                    <div class="col-md-6 pb-3">
+                                        <MudTextField @bind-Value="amount" Label="จำนวนเงิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                    </div>
+                                    <div class="col-md-12 pb-3">
+                                        <MudSelect T="string" @bind-Value="description1" Label="คำอธิบาย" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                                            <MudSelectItem Value="@("เพื่อปล่อยสินเชื่อ")" />
+                                            <MudSelectItem Value="@("เงินเกินในระบบ")" />
+                                            <MudSelectItem Value="@("นำเงินส่งภาษีประจำเดือน")" />
+                                        </MudSelect>
+                                    </div>
+                                    <div class="col-md-12 pb-3">
+                                        <MudTextField @bind-Value="description1" Label="คำอธิบาย" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="5"></MudTextField>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-12 text-center pb-3">
+                                    <MudFileUpload T="IBrowserFile" OnFilesChanged="OnInputFileChanged">
+                                        <ButtonTemplate>
+                                            <MudButton HtmlTag="label"
+                                                       Variant="Variant.Filled"
+                                                       Color="Color.Primary"
+                                                       for="@context.Id">
+                                                แนบสลิปโอนเงิน
+                                            </MudButton>
+                                        </ButtonTemplate>
+                                        <SelectedTemplate>
+                                            <div class="row">
+                                                <div class="col-12 mt-2">
+                                                    @if (context != null)   
+                                                    {
+
+                                                        <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                    }
+                                                    else
+                                                    {
+                                                        <MudText>ไม่มีแนบสลิปโอนเงิน</MudText>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                        </SelectedTemplate>
+                                    </MudFileUpload>
+
+
+                                </div>
+                                <div class="col-md-12 pb-3 text-center">
+                                    <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goback()">กลับ</MudButton>
+                                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit(b_id)">เพิ่มรายการ</MudButton>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div class="row">
+                                @if(subject_Id != 9 && subject_Id != 10 ){
+                                    <div class="col-md-12 pb-3">
+                                        <MudRadioGroup @bind-Value="@Paytype">
+                                            <MudRadio Value="1" Color="Color.Primary"> เงินสด</MudRadio>
+                                            <MudRadio Value="2" Color="Color.Secondary">เงินโอน</MudRadio>
+                                        </MudRadioGroup>
+                                    </div>
+                                }
+                             
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="name" Label="เลขที่อ้างอิง" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly Style="@buttoncollape"></MudTextField>
+                                </div>
+
+                                <div class="col-md-6 pb-3">
+                                    <MudNumericField @bind-Value="amount" Label="จำนวนเงิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudNumericField>
+                                </div>
+                                <div class="col-md-12 pb-3">
+                                    <MudTextField @bind-Value="description" Label="คำอธิบาย" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="5"></MudTextField>
+                                </div>
+
+
+
+                                <div class="col-md-12 text-center pb-3">
+                                    <MudFileUpload T="IBrowserFile">
+                                        <ButtonTemplate>
+                                            <MudButton HtmlTag="label"
+                                                       Variant="Variant.Filled"
+                                                       Color="Color.Primary"
+                                                       for="@context.Id">
+                                                แนบสลิปโอนเงิน
+                                            </MudButton>
+                                        </ButtonTemplate>
+                                        <SelectedTemplate>
+                                            <div class="row">
+                                                <div class="col-12 mt-2">
+                                                    @if (context != null)
+                                                    {
+
+                                                        <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                    }
+                                                    else
+                                                    {
+                                                        <MudText>ไม่มีแนบสลิปโอนเงิน</MudText>
+                                                    }
+                                                </div>
+                                            </div>
+
+                                        </SelectedTemplate>
+                                    </MudFileUpload>
+
+
+                                </div>
+                                <div class="col-md-12 pb-3 text-center">
+                                    <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goback()">กลับ</MudButton>
+                                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit(b_id)">เพิ่มรายการ</MudButton>
+                                </div>
+                            </div>
+
+                        }
+                        
+
+
+                    </div>
+
+                   
+                </div>
+           
+            </div>
+        </div>
+    </div>
+
+</div>
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    [Parameter]
+    public int b_id { get; set; }
+    private int subject_Id { get; set; }
+    public int Paytype { get; set; } = 1;
+    public string description1;
+
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+
+    List<Branch> list_Branch = new List<Branch>();
+    List<SubjectCost> list_subject = new List<SubjectCost>();
+    Login userLogin = new Login();
+    Branch my_b = new Branch();
+    protected override async Task OnInitializedAsync()
+    {
+        userLogin = userLoginService.UserLogin;
+
+        list_Branch = db.Branches.Where(s=>s.IsActive == true).ToList();
+
+        list_subject = db.SubjectCosts.Where(s => s.IsActive == true).OrderBy(s=>s.SubjectCode).ToList();
+
+        string timestamp = DateTime.Now.ToString("ddMMyy");
+
+        // Generating a random text part (You can adjust the length as per your requirement)
+        string randomText = RandomString(5); // Generates a random string of length 5
+        my_b = list_Branch.Where(s => s.Id == b_id).FirstOrDefault();
+        name = my_b.BranchCode + "-" + timestamp + "-" + randomText;
+    }
+
+    private string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder stringBuilder = new StringBuilder();
+        Random random = new Random();
+        for (int i = 0; i < length; i++)
+        {
+            stringBuilder.Append(chars[random.Next(chars.Length)]);
+        }
+        return stringBuilder.ToString();
+    }
+    private async Task<IEnumerable<Branch>> SearchBranch(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return list_Branch;
+        return list_Branch.Where(x => x.BranchName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+    private string description2;
+    private void OnDescriptionChanged(string value)
+    {
+        // Additional functionality when an item is selected
+        // For example, you can perform some action based on the selected value
+        description2 = value;
+    }
+    Models.Branch selectBranch = null;
+    Models.Branch _selectBranch
+    {
+        get { return _selectBranch; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectBranch = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+
+  
+}

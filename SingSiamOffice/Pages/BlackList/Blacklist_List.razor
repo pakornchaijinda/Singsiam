@@ -1,0 +1,205 @@
+﻿@page "/blacklist_list/{b_id:int}"
+@* <h3>Blacklist_List</h3> *@
+@using Models
+@using Microsoft.EntityFrameworkCore
+
+<Navbar2 ></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudStack Row="true">
+                    <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> Blacklist</MudText>
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>AddBlacklist()">เพิ่ม Blacklist</MudButton>
+                </MudStack>
+                
+            </div>
+        
+        </div>
+
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ค้นหาข้อมูลลูกค้า</MudText>
+             
+                    </div>
+                    <div class="col-3 pb-3">
+                        <MudAutocomplete T="BlackList" Label="กรอกเลขบัตรหรือชื่อที่ต้องการค้นหา" @bind-Value="selectBlackList" Margin="Margin.Dense" ToStringFunc="@(e=> e==null?null : $"{e.Customer.NatId} | {e.Customer.FullName}")" SearchFunc="@SearchValue" Variant="Variant.Outlined" />
+                      
+                    </div>
+                
+                    <div class="col-6 pb-3">
+                        <MudStack Row="true" Spacing="1">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Search" Size="Size.Large" Color="Color.Info"  @onclick="()=>fillter()">ค้นหา</MudButton>
+                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Close" Size="Size.Large" Color="Color.Error"  @onclick="()=>reset()">ล้างข้อมูล</MudButton>
+                        </MudStack>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead style="@tableheader">
+                            <tr>
+                               
+                                <th class="col-4">เลขบัตรประจำตัวประชาชน</th>
+                                <th class="col-4">ชื่อ - นามสกุล</th>
+                                <th class="col-2">เบอร์โทร</th>
+                                <th class="col-2">การจัดการ</th>
+
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           @foreach(var data in list_black)
+                            {
+                                <tr>
+
+                                    
+                                    <td>@data.Customer.NatId</td>
+                                    <td>@data.Customer.FullName</td>
+                                    <td>@data.Customer.Phone</td>
+                                    <td>
+                                        <MudMenu FullWidth="true" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft">
+                                            <ActivatorContent>
+                                                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Style="@buttoncolor1">การจัดการ</MudButton>
+                                            </ActivatorContent>
+                                            <ChildContent>
+                                                <MudMenuItem @onclick="()=>ViewBlacklist(data.BlackId)">ดูข้อมูล</MudMenuItem>
+                                                <MudMenuItem @onclick="()=>EditBlacklist(data.BlackId)">แก้ไข</MudMenuItem>
+                                                <MudMenuItem @onclick="()=>delete(data.BlackId)">ลบ</MudMenuItem>
+
+                                            </ChildContent>
+                                        </MudMenu>
+                                    </td>
+
+                                </tr>
+                                loopcount++;
+                            }
+                         
+                      
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+@* view Dialog *@
+<MudDialog @bind-IsVisible="viewBlacklist" Options="dialogOptions">
+    <TitleContent>
+        <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/research.svg" alt="" style="width:3rem;"> ดูข้อมูล Blacklist</MudText>
+    </TitleContent>
+    <DialogContent>
+        <div class="container-fluid mt-4 mb-4">
+            <div class="card inner-card">
+                <div class="card-body">
+                    <div class="row">
+                        <MudList>
+                            <MudListItem><MudText Typo="Typo.body1" Style="@imporText">เลขบัตรประจำตัวประชาชน : <span style="@detailtext">@to_view.Customer.NatId</span></MudText></MudListItem>
+                            <MudListItem><MudText Typo="Typo.body1" Style="@imporText">ชื่อ - นามสกุล : <span style="@detailtext">@to_view.Customer.FullName</span></MudText></MudListItem>
+                            <MudListItem><MudText Typo="Typo.body1" Style="@imporText">เบอร์โทร : <span style="@detailtext">@to_view.Customer.Phone</span></MudText></MudListItem>
+                            <MudListItem><MudText Typo="Typo.body1" Style="@imporText">คำอธิบาย : <span style="@detailtext">@to_view.Detial</span></MudText></MudListItem>
+                        </MudList>
+
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </DialogContent>
+
+</MudDialog>
+
+
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    int loopcount = 1; // Initialize loop count variable
+    [Parameter]
+    public int b_id { get; set; }
+    List<BlackList> list_black = new List<BlackList>();
+
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+    protected override async Task OnInitializedAsync()
+    {
+        list_black = db.BlackLists.Include(s => s.Customer).Where(s => s.BranchId == b_id).ToList();
+
+    }
+    Models.BlackList selectBlackList = null;
+    Models.BlackList _selectBlackList
+    {
+        get { return _selectBlackList; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectBlackList = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    private async Task<IEnumerable<BlackList>> SearchValue(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return list_black;
+        return list_black.Where(x => x.Customer.NatId.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.Customer.FullName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+    private void fillter()
+    {
+        if (selectBlackList != null)
+        {
+           
+            list_black = list_black.Where(s => s.CustomerId == selectBlackList.CustomerId).ToList();
+
+            StateHasChanged();
+        }
+
+    }
+    private void reset()
+    {
+    
+        selectBlackList = null;
+        list_black = db.BlackLists.Include(s => s.Customer).Where(s=>s.BranchId == b_id).ToList();
+        StateHasChanged();
+    }
+
+}

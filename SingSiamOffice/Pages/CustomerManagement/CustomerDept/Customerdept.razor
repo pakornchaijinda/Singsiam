@@ -1,0 +1,172 @@
+﻿@page "/customerdept"
+@* <h3>Customerdept</h3> *@
+
+
+
+<Navbar2></Navbar2>
+<div class="content">
+    <Header/>
+
+
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img src="img/icons/depts.svg" alt="" style="width:3rem;"> หนี้อื่นๆ</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-header" style="@tableheader">ข้อมูลลูกค้า</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 pb-3 text-center">
+                        <img src="/img/customers/Profile.png" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8 pb-3">
+                        <div class="row">
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">เลขบัตรประจำตัวประชาชน</MudText>
+                                    <MudText Typo="Typo.body1">000-00-00000-000</MudText>
+                                </MudStack>
+
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">ชื่อ - สกุล</MudText>
+                                    <MudText Typo="Typo.body1">นาย xxxx xxxxxxx</MudText>
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">เบอร์โทรศัพท์</MudText>
+                                    <MudText Typo="Typo.body1">000-000-0000</MudText>
+                                </MudStack>
+                            </div>
+                            <hr />
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">ที่อยู่</MudText>
+                                    <MudText Typo="Typo.body2">
+                                        4517 Washington Ave.
+                                        Manchester, Kentucky 39495
+                                    </MudText>
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">สถานะลูกค้า</MudText>
+                                    <MudChip Variant="Variant.Text" Color="Color.Success">ปกติ</MudChip>
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">Link - map</MudText>
+                                    <a href="https://maps.app.goo.gl/xRXML62Nz7GXkGcR7" target="_blank">ดูแผนที่</a>
+                                </MudStack>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                   <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="depts_details" Label="รายละเอียดหนี้" Placeholder="ระบุรายละเอียดหนี้" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                   </div>
+                    <div class="col-md-4 pb-3">
+                        <MudTextField @bind-Value="depts_amount" Label="จำนวนเงิน" Placeholder="ระบุจำนวนเงิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-2 pb-3">
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.KeyboardArrowDown" DisableElevation="true" Style="@buttoncolor1" Size="Size.Large">เพิ่มรายการ</MudButton>
+                    </div>
+                    <div class="col-md-12 mt-4 mb-4">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead style="@tableheader">
+                                    <tr>
+                                        <th scope="col-2">วัน/เดือน/ปี</th>
+                                        <th scope="col-5">รายละเอียด</th>
+                                        <th scope="col-3">จำนวนเงิน</th>
+                                   
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>10/12/2566</td>
+                                        <td>ค่าประกันหนี้</td>
+                                        <td>12221</td>
+                                      
+                                        <td class="text-end">
+                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Remove" Color="Color.Error">ลบรายการ</MudButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td>10/12/2566</td>
+                                        <td>ค่าประกันหนี้</td>
+                                        <td>12221</td>
+                                     
+
+                                        <td class="text-end">
+                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Remove" Color="Color.Error">ลบรายการ</MudButton>
+                                        </td>
+
+                                    </tr>
+                                
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3 text-center">
+                        <MudText Typo="Typo.body1" Color="Color.Error">* กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนทุกครั้งก่อนการเพิ่มข้อมูล</MudText>
+                    </div>
+                    <div class="col-md-12 mt-3 mb-3 text-center">
+                        <MudButton Variant="Variant.Outlined" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">ย้อนกลับ</MudButton>
+                        <MudButton Variant="Variant.Filled" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">เพิ่มข้อมูล</MudButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@code {
+   
+
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    string detailtextgreen = "color:#1D8348; font-weight:600; font-style: italic;";
+    string detailtextred = "color:#922B21; font-weight:600; font-style: italic;";
+
+}

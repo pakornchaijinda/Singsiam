@@ -1,0 +1,158 @@
+﻿@page "/edit-customer/{b_id:int}/{c_id:int}"
+@* <h3>EditCustomer</h3> *@
+@using Models
+@using Microsoft.EntityFrameworkCore;
+<Navbar2></Navbar2>
+
+<div class="content">
+    <Header />
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/edit.svg" alt="" style="width:3rem;"> แก้ไขข้อมูลลูกค้า / คนค้ำประกัน</MudText>
+            </div>
+        </div>
+    </div>
+
+  @*   <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 text-center mt-4 mb-4">
+                        <img class="mb-3" src="img/customers/idcard.jpg" alt="" style="width: 20rem;">
+                        <MudText Typo="Typo.body1" Class="mb-3">กรุณาเสียบบัตรประชาชนในเครื่องอ่านบัตรแล้วทำการคลิก "ดึงข้อมูล"</MudText>
+                        <MudButton Variant="Variant.Filled" DisableElevation="true" Color="Color.Primary" StartIcon="@Icons.Material.Filled.DownloadForOffline" Size="Size.Large">ดึงข้อมูล</MudButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> *@
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-header" style="@tableheader">ข้อมูลบัตรประจำตัวประชาชน</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 text-center pb-3">
+                        <img class="mb-3" src="img/customers/idcard.jpg" alt="" style="width: 10rem;">
+                    </div>
+                    <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.NatId" Label="เลขบัตรประจำตัวประชาชน" Placeholder="ระบุเลขบัตรประจำตัวประชาชน" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("0-0000-00000-00-0"))"></MudTextField>
+                    </div>
+                </div>
+                <div class="row">
+                 
+                    <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.FullName" Label="ชื่อ - นามสกุล" Placeholder="ระบุชื่อ - นามสกุล" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+
+                    <div class="col-md-3 pb-3">
+                        <MudDatePicker @bind-Date="dob" Label="วัน/เดือน/ปีเกิด" Culture="@GetThaiCulture()" PickerVariant="PickerVariant.Dialog" UseShortNames="false" TitleDateFormat="dddd, dd MMMM" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" Required RequiredError="กรุณาระบุวัน/เดือน/ปีเกิด" />
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.Religion" Label="ศาสนา" Placeholder="ระบุศาสนา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                     <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.Address" Label="ที่อยู่" Placeholder="ระบุที่อยู่" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="3"></MudTextField>
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.CardCreate" HelperText="ตัวอย่าง 01/12" Label="วันที่ออกบัตร" Placeholder="ระบุวันที่ออกบัตร" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.CardExprite" HelperText="ตัวอย่าง 01/12" Label="วันที่บัตรหมดอายุ" Placeholder="ระบุวันที่บัตรหมดอายุ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+     </div>
+
+     <div class="container-fluid mt-4 mb-4">
+         <div class="card outer-card">
+             <div class="card-header" style="@tableheader">ข้อมูลอื่นๆ</div>
+             <div class="card-body">
+
+                 <div class="row">
+
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.Phone" Label="เบอร์โทรศัพท์ติดต่อ" Placeholder="ระบุเบอร์โทรศัพท์ติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("000-000-0000"))"></MudTextField>
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.Job" Label="อาชีพ" Placeholder="ระบุอาชีพ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                     <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.JobAddress" Label="ที่อยู่สถานที่ทำงาน" Placeholder="ที่อยู่สถานที่ทำงาน" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="3"></MudTextField>
+                     </div>
+                     <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.LocationLink" Label="ลิงก์ที่อยู่อาศัย (Google Map)" Placeholder="ลิงก์ที่อยู่อาศัย (Google Map)" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="3"></MudTextField>
+                     </div>
+
+                 </div>
+                 <hr />
+                 <div class="row">
+
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.ManRef" Label="บุคคลอ้างอิง" Placeholder="ระบุบุคคลอ้างอิง" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.ManRelation" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                     <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.ManPhone" Label="เบอร์โทรศัพท์ติดต่อบุคคลอ้างอิง" Placeholder="เบอร์โทรศัพท์ติดต่อบุคคลอ้างอิง" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("000-000-0000"))"></MudTextField>
+                     </div>
+                     <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="edit_cuc.OrtherDebt" Label="หนี้อื่นๆ" Placeholder="หนี้อื่นๆโปรดระบุ" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="3"></MudTextField>
+                     </div>
+
+                 </div>
+             </div>
+         </div>
+
+     </div>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mt-3 mb-3 text-center">
+                        <MudText Typo="Typo.body1" Color="Color.Error">* กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนทุกครั้งก่อนการแก้ไขข้อมูลลูกค้า / คนค้ำประกัน</MudText>
+                    </div>
+                    <div class="col-md-12 mt-3 mb-3 text-center">
+                        <MudButton Variant="Variant.Outlined" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">ย้อนกลับ</MudButton>
+                        <MudButton Variant="Variant.Filled" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">แก้ไขข้อมูลลูกค้า / คนค้ำประกัน</MudButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Parameter]
+    public int c_id { get; set; } 
+    [Parameter]
+    public int b_id { get; set; }
+    SingsiamdbContext db = new SingsiamdbContext();
+
+    Customer edit_cuc = new Customer();
+
+    protected override async Task OnInitializedAsync()
+    {
+        edit_cuc = db.Customers.Include(s=>s.Branch).Where(s => s.CustomerId == c_id).FirstOrDefault();
+        dob = edit_cuc.Bdate;
+    }
+
+}

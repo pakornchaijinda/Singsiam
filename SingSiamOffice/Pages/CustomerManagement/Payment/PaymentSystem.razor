@@ -1,0 +1,477 @@
+﻿@page "/payment-system"
+@* <h3>PaymentSystem</h3> *@
+
+@if (role == "admin")
+{
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <NavLink href="/dashboard-admin" class="navbar-brand mx-4 mb-3">
+                <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:15rem;">
+            </NavLink>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="ms-3">
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">Admin</span>
+
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <NavLink href="/dashboard-admin" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+                <NavLink href="/branchManagement-list" class="nav-item nav-link active"><img class="rounded-circle" src="img/icons/branches.svg" alt="" style="width:3rem;"> จัดการสาขา</NavLink>
+                <NavLink href="/employee-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/employee.svg" alt="" style="width:3rem;"> จัดการพนักงาน</NavLink>
+                @*   <NavLink href="/deptcollection-list" class="nav-item nav-link"><i class="fa fa-table me-2"></i>รายงาน</NavLink> *@
+                <div class="nav-item dropdown">
+                    <NavLink href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img class="rounded-circle" src="img/icons/report.svg" alt="" style="width:3rem;"> รายงาน</NavLink>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <NavLink href="/contract-report" class="dropdown-item">สัญญา</NavLink>
+                        <NavLink href="/expense-report" class="dropdown-item">รายรับ - รายจ่ายสาขา</NavLink>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!-- Sidebar End -->
+}
+@if (role == "employee")
+{
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <NavLink href="/dashboard" class="navbar-brand mx-4 mb-3">
+                <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:15rem;">
+            </NavLink>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="ms-3">
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">เจ้าหน้าที่</span> |
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">ประจำสาขา : เชียงใหม่</span>
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <NavLink href="/dashboard" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+                <NavLink href="/customerlist" class="nav-item nav-link active"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> ข้อมูลลูกค้า</NavLink>
+                <NavLink href="/blacklist_list" class="nav-item nav-link "><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> Blacklist</NavLink>
+                <NavLink href="/deptcollection-list" class="nav-item nav-link "><img class="rounded-circle" src="img/icons/customer-service.svg" alt="" style="width:3rem;"> ติดตาม</NavLink>
+                <NavLink href="/expense-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/expense.svg" alt="" style="width:3rem;"> รายรับ - รายจ่าย</NavLink>
+
+            </div>
+        </nav>
+    </div>
+
+}
+<!-- Sidebar End -->
+
+<div class="content">
+    <Header/>
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/payment.svg" alt="" style="width:3rem;">รายการชำระค่างวด</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mt-4 mb-4">
+                        <MudText Typo="Typo.body1" Style="@imporText">รายการที่ต้องชำระ</MudText>
+                    </div>
+                    <div class="col-md-12 mt-4 mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead style="@tableheader">
+                                    <tr>
+                                        <th>งวดที่</th>
+                                        <th>วันที่</th>
+                                        <th>เงินต้น</th>
+                                        <th>จำนวนเงินที่ต้องชำระ</th>
+                                        <th>ดอกเบี้ย</th>
+                                   
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                       
+                                        <td>1</td>
+                                        <td>00/00/0000</td>
+                                        <td>30000</td>
+                                        <td>200</td>
+                                        <td>20</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                      
+                                        <td>2</td>
+                                        <td>00/00/0000</td>
+                                        <td>30000</td>
+                                        <td>200</td>
+                                        <td>20</td>
+                                       
+                                    </tr>
+                               
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mt-4 mb-4">
+                        <MudText Typo="Typo.body1" Style="@imporText">ชำระค่างวด</MudText>
+                    </div>
+                   <div class="col-md-4 pb-3">
+                        <MudSelect T="int" @bind-Value="payment_type" Label="ประเภทการชำระค่างวด" Placeholder="ระบุประเภทการชำระค่างวด" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem T="int" Value="1">ชำระค่างวดปกติ</MudSelectItem>
+                            <MudSelectItem T="int" Value="2">ปิดสัญญาก่อนกำหนด</MudSelectItem>
+
+                        </MudSelect>
+                   </div>
+                    <div class="col-md-4 pb-3">
+                        <MudSelect T="int" @bind-Value="payment_method" Label="วิธีการชำระค่างวด" Placeholder="ระบุวิธีการชำระค่างวด" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                            <MudSelectItem T="int" Value="1">เงินสด</MudSelectItem>
+                            <MudSelectItem T="int" Value="2">เงินโอน</MudSelectItem>
+                            <MudSelectItem T="int" Value="3">อื่นๆ</MudSelectItem>
+
+                        </MudSelect>
+                    </div>
+                </div>
+
+
+                @if (payment_type == 1)
+                {
+                    <div class="card inner-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="receiptNo" Label="เลขที่ใบเสร็จ" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="pay_amount" Label="ยอดที่ต้องชำระ" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="deposit_amount" Label="ยอดรับฝากเงิน" Variant="Variant.Outlined" Style="@text_fill" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="total_paid" Label="ยอดที่ชำระ" Variant="Variant.Outlined" Style="@text_fill"  Margin="Margin.Dense"></MudTextField>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="fine" Label="ค่าปรับ" HelperText="* ล่าช้า 7 วัน ค่าปรับยังไม่มี | ค่าปรับคิดเป็น 10 % ของค่างวด" Variant="Variant.Outlined" Style="@text_fill" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <MudTextField @bind-Value="demand_fee" Label="ค่าทวงถาม" HelperText="เดือนที่ 1 : 100 | เดือนที่ 2 : 200" Variant="Variant.Outlined" Style="@text_fill" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                            </div>
+                            @if(payment_method == 1)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+                            @if(payment_method == 2)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudFileUpload T="IBrowserFile">
+                                            <ButtonTemplate>
+                                                <MudButton HtmlTag="label"
+                                                           Variant="Variant.Filled"
+                                                           Color="Color.Primary"
+                                                           for="@context.Id">
+                                                    แนบสลิปโอนเงิน
+                                                </MudButton>
+                                            </ButtonTemplate>
+                                            <SelectedTemplate>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        @if (context != null)
+                                                        {
+                                                            <di></di>
+                                                            <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                        }
+                                                        else
+                                                        {
+                                                            <MudText>ไม่มีแนบสลิปโอนเงิน</MudText>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                            </SelectedTemplate>
+                                        </MudFileUpload>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (payment_method == 3)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6 pb-3">
+                                        <MudTextField @bind-Value="payment_method_description" Label="วิธีการชำระ" HelperText="ระบุวิธีการชำระ" Variant="Variant.Outlined" Style="@text_fill" Margin="Margin.Dense"></MudTextField>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudFileUpload T="IBrowserFile">
+                                            <ButtonTemplate>
+                                                <MudButton HtmlTag="label"
+                                                           Variant="Variant.Filled"
+                                                           Color="Color.Primary"
+                                                           for="@context.Id">
+                                                    แนบหลักฐานการชำระ
+                                                </MudButton>
+                                            </ButtonTemplate>
+                                            <SelectedTemplate>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        @if (context != null)
+                                                        {
+                                                            <di></di>
+                                                            <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                        }
+                                                        else
+                                                        {
+                                                            <MudText>ไม่มีแนบหลักฐานการชำระ</MudText>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                            </SelectedTemplate>
+                                        </MudFileUpload>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                }
+
+                @if (payment_type == 2)
+                {
+                    <div class="card inner-card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="receiptNo" Label="เลขที่ใบเสร็จ" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="outstanding_amount" Label="เงินต้นคงค้าง" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="accruedInterest" Label="ดอกเบี้ยคงค้าง" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="deposit_amount" Label="ยอดรับเงินฝาก" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="closingCost" Label="ค่าปิดบัญชี" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="interest_Reduce" Label="ดอกเบี้ยที่ลดได้" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField  @bind-Value="installments_remain" Label="จำนวนงวดที่คงเหลือ" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-3 pb-3">
+                                    <MudTextField @bind-Value="fine" Label="ค่าปรับ / ค่าทวงถาม" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 pb-3">
+                                    <MudTextField Style="@text_fill" @bind-Value="additional_Interest" Label="ดอกเบี้ยเพิ่ม (บาท)" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-4 pb-3">
+                                    <MudTextField Style="@text_fill" @bind-Value="interest_discount" Label="ส่วนลดดอกเบี้ย" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-4 pb-3">
+                                    <MudTextField  Style="@text_fill" @bind-Value="total_paid" Label="ยอดที่ต้องชำระ (คำนวน)" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-4 pb-3">
+                                    <MudTextField Style="@text_fill" @bind-Value="diff" Label="ส่วนต่าง" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                </div>
+                                <div class="col-md-4 pb-3">
+                                    <MudSelect Style="@text_fill" T="int" @bind-Value="close_type" Label="ประเภทการปิดสัญญา" Placeholder="ระบุประเภทการปิดสัญญา" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                                        <MudSelectItem T="int" Value="1">ปกติ</MudSelectItem>
+                                        <MudSelectItem T="int" Value="2">ยึด</MudSelectItem>
+                                        <MudSelectItem T="int" Value="3">หนี้สูญ</MudSelectItem>
+                                        <MudSelectItem T="int" Value="4">ดำเนินคดี</MudSelectItem>
+                                        <MudSelectItem T="int" Value="5">รอขายทอดตลาด</MudSelectItem>
+                                    </MudSelect>
+                                </div>
+                            </div>
+
+                            @if (payment_method == 1)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (payment_method == 2)
+                            {
+                                <div class="row">
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudFileUpload T="IBrowserFile">
+                                            <ButtonTemplate>
+                                                <MudButton HtmlTag="label"
+                                                           Variant="Variant.Filled"
+                                                           Color="Color.Primary"
+                                                           for="@context.Id">
+                                                    แนบสลิปโอนเงิน
+                                                </MudButton>
+                                            </ButtonTemplate>
+                                            <SelectedTemplate>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        @if (context != null)
+                                                        {
+                                                            <di></di>
+                                                            <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                        }
+                                                        else
+                                                        {
+                                                            <MudText>ไม่มีแนบสลิปโอนเงิน</MudText>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                            </SelectedTemplate>
+                                        </MudFileUpload>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+                            @if (payment_method == 3)
+                            {
+                                <div class="row">
+                                    <div class="col-md-6 pb-3">
+                                        <MudTextField @bind-Value="payment_method_description" Label="วิธีการชำระ" HelperText="ระบุวิธีการชำระ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudFileUpload T="IBrowserFile">
+                                            <ButtonTemplate>
+                                                <MudButton HtmlTag="label"
+                                                           Variant="Variant.Filled"
+                                                           Color="Color.Primary"
+                                                           for="@context.Id">
+                                                    แนบหลักฐานการชำระ
+                                                </MudButton>
+                                            </ButtonTemplate>
+                                            <SelectedTemplate>
+                                                <div class="row">
+                                                    <div class="col-12 mt-2">
+                                                        @if (context != null)
+                                                        {
+                                                            <di></di>
+                                                            <MudText>ไฟล์ชื่อ : @context.Name</MudText>
+                                                        }
+                                                        else
+                                                        {
+                                                            <MudText>ไม่มีแนบหลักฐานการชำระ</MudText>
+                                                        }
+                                                    </div>
+                                                </div>
+
+                                            </SelectedTemplate>
+                                        </MudFileUpload>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 text-center mt-4 pb-3">
+                                        <MudText Typo="Typo.body1" Style="@imporText">กรุณาตรวจสอบข้อมูลให้ถูกต้องก่อนการชำระรายการ</MudText>
+                                    </div>
+                                    <div class="col-md-12 text-center pb-3">
+                                        <MudButton Variant="Variant.Outlined" Size="Size.Large" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack()">กลับ</MudButton>
+                                        <MudButton Variant="Variant.Filled" Size="Size.Large" DisableElevation="true" Style="@buttoncolor1" @onclick="()=>submit()">ชำระรายการ</MudButton>
+                                    </div>
+
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    string text_fill = "background-color:#FFF; color:#110A09 ; font-weight:600;";
+
+  
+    
+
+}

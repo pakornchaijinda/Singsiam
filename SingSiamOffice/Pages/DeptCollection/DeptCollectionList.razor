@@ -1,0 +1,239 @@
+﻿@page "/deptcollection-list/{b_id:int}"
+@* <h3>DeptCollectionList</h3> *@
+
+<Navbar2></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/customer-service.svg" alt="" style="width:3rem;"> ติดตาม</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">จำนวนวันที่คงค้าง</MudText>
+                     
+                    </div>
+                    <div class="col-2 pb-3">
+                        <MudNumericField @bind-Value="overdueDate" Label="ระบุจำนวนวันที่คงค้าง" Variant="Variant.Outlined" Margin="Margin.Dense" Min="0" Max="10" />
+                    </div>
+                   
+                    <div class="col-6 pb-3">
+                        <MudStack Row="true" Spacing="1">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Large" Color="Color.Info">ค้นหา</MudButton>
+                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Large" Color="Color.Error">ล้างข้อมูล</MudButton>
+                        </MudStack>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 mt-4 mb-4">
+                        <MudText Typo="Typo.h6" Style="@headertext">ข้อมูลสัญญาที่คงค้าง</MudText>
+                    </div>
+                    <div class="col-md-12 mt-4 mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead style="@tableheader">
+                                    <tr>
+                                        <th class="">สัญญา</th>
+                                        <th class="">ชื่อ - นามสกุล</th>
+                                        <th class="">เบอร์โทรศัพท์</th>
+                                        <th class="">งวดรวม</th>
+                                        <th class="">งวดชำระ</th>
+                                        <th class="">งวดค้าง</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>PC000049</td>
+                                        <td>นาย XXXX XXXX</td>
+                                        <td>090-000-0000</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>
+                                            <MudButton OnClick="OnExpandCollapseClick">
+                                                @if (_expanded)
+                                                {
+                                                    <MudText Typo="Typo.body1">ดูข้อมูลเพิ่มเติม <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" /></MudText>
+                                                }
+                                                else
+                                                {
+                                                    <MudText Typo="Typo.body1">ดูข้อมูลเพิ่มเติม <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowUp" /></MudText>
+
+                                                }
+                                                @* @(_expanded ? "รายการสัญญาที่ทำ"  : "รายการสัญญาที่ทำ") *@
+                                            </MudButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7">
+                                            <MudCollapse Expanded="_expanded">
+                                                <div class="card inner-card">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">ชำระล่าสุด</MudText>
+                                                                    <MudText Typo="Typo.body1">21/11/2556</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">ค้างชำระ</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">งวดละ</MudText>
+                                                                    <MudText Typo="Typo.body1">960</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">เกินกำหนด(วัน)</MudText>
+                                                                    <MudText Typo="Typo.body1">15</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">คงเหลือ</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">รวมยอดทั้งหมด</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </MudCollapse>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>PC000049</td>
+                                        <td>นาย XXXX XXXX</td>
+                                        <td>090-000-0000</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>
+                                            <MudButton OnClick="OnExpandCollapseClick">
+                                                @if (_expanded)
+                                                {
+                                                    <MudText Typo="Typo.body1">ดูข้อมูลเพิ่มเติม <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" /></MudText>
+                                                }
+                                                else
+                                                {
+                                                    <MudText Typo="Typo.body1">ดูข้อมูลเพิ่มเติม <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowUp" /></MudText>
+
+                                                }
+                                                @* @(_expanded ? "รายการสัญญาที่ทำ"  : "รายการสัญญาที่ทำ") *@
+                                            </MudButton>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7">
+                                            <MudCollapse Expanded="_expanded">
+                                                <div class="card inner-card">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">ชำระล่าสุด</MudText>
+                                                                    <MudText Typo="Typo.body1">21/11/2556</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">ค้างชำระ</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">งวดละ</MudText>
+                                                                    <MudText Typo="Typo.body1">960</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">เกินกำหนด(วัน)</MudText>
+                                                                    <MudText Typo="Typo.body1">15</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">คงเหลือ</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+                                                            <div class="col-2 pb-3 text-center">
+                                                                <MudStack>
+                                                                    <MudText Typo="Typo.body1" Style="@imporText">รวมยอดทั้งหมด</MudText>
+                                                                    <MudText Typo="Typo.body1">2100</MudText>
+                                                                </MudStack>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </MudCollapse>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+ 
+
+</div>
+
+
+
+
+
+
+@code {
+
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Parameter]
+    public int b_id { get; set; }
+}

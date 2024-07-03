@@ -1,0 +1,287 @@
+﻿@page "/expense-list/{b_id:int}"
+@using System.Globalization;
+@* <h3>ExpenseList</h3> *@
+@using Models
+@using Microsoft.EntityFrameworkCore;
+
+
+<Navbar2></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudStack Row="true">
+                    <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/expense.svg" alt="" style="width:3rem;"> รายรับ - รายจ่าย</MudText>
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>AddExpense(b_id)">เพิ่มรายการ</MudButton>
+                </MudStack>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ค้นหารายการธุรกรรม</MudText>
+                    </div>
+                    <div class="col-3 pb-3"> 
+                        <MudAutocomplete T="SubjectCost" Label="รหัสบัญชีรายการธุรกรรม" @bind-Value="selectSubjectCost" ToStringFunc="@(e=> e==null?null : $"{e.SubjectCode} | {e.SubjectName}")"  Margin="Margin.Dense" SearchFunc="@SearchSubjectCoste" Variant="Variant.Outlined" />
+                    </div>
+                    <div class="col-3 pb-3">
+                        <MudDatePicker Label="วัน/เดือน/ปี" @bind-Date="date" Culture="@CultureInfo.GetCultureInfo("th-TH")" TitleDateFormat="dddd, dd MMMM" Variant="Variant.Outlined" Margin="Margin.Dense" />
+                    </div>
+                    <div class="col-6 mt-1 pb-3">
+                        <MudStack Row="true" Spacing="1">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Large" Color="Color.Info" @onclick="()=>Fillter()">ค้นหา</MudButton>
+                            <MudButton Variant=" Variant.Outlined" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Large" Color="Color.Error" @onclick="()=>Reset()">ล้างข้อมูล</MudButton>
+                        </MudStack>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container mt-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 mb-4 mt-4">
+                        <MudText Typo="Typo.body1" Style="@headertext">รายการทั้งหมด</MudText>
+                    </div>
+                    <div class="col-md-12 mb-4 mt-4">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead style="@tableheader">
+                                    <tr>
+                                        <th class="col">เลขรหัสธุรกรรม</th>
+                                        <th class="col">วัน / เดือน / ปี</th>
+                                        <th class="col">รายการ</th>
+                                        <th class="col">จำนวนเงินรับ(บาท)</th>
+                                        <th class="col">จำนวนเงินออก(บาท)</th>
+                                        <th class="col">ประเภทการจ่าย</th>
+                                        <th class="col">ผู้ทำรายการ</th>
+                                        <th class="col text-center">จัดการ</th>
+
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if(list_TransactionHistory != null){
+                                        @foreach (var data in list_TransactionHistory)
+                                        {
+                                            <tr>
+                                                <td>@data.TransectionRef</td>
+                                                <td>@data.CreateAt.ToString("dd/MM/yyyy hh:mm:ss")</td>
+                                                <td>@data.Subject.SubjectName</td>
+
+                                                @if (data.Subject.SubjectType == 1)
+                                                {
+
+                                                    <td class="text-end" style="@receivedmoney">@data.Price</td>
+                                                    <td class="text-center" style="@outmoney"> - </td>
+                                                }
+                                                else if (data.Subject.SubjectType == 2)
+                                                {
+                                                    <td class="text-center" style="@receivedmoney"> - </td>
+                                                    <td class="text-end" style="@outmoney">@data.Price</td>
+                                                }
+                                                else
+                                                {
+                                                    <td class="text-center" style="@outmoney"> - </td>
+                                                    <td class="text-end" style="@outmoney">-</td>
+                                                    @if (data.Subject.SubjectType == 3)
+                                                    {
+                                                        <td class="text-end">withdrawal</td>
+                                                    }
+                                                    else if (data.Subject.SubjectType == 4)
+                                                    {
+                                                        <td class="text-end">deposit</td>
+                                                    }
+                                                    else
+                                                    {
+
+                                                    }
+                                                }
+                                                @if (data.PaymentMethod == 1 && data.Subject.SubjectType != 4 && data.Subject.SubjectType != 3)
+                                                {
+                                                    <td class="text-end" style="@cash">เงินสด</td>
+                                                }
+                                                else if (data.PaymentMethod == 2 && data.Subject.SubjectType != 4 && data.Subject.SubjectType != 3)
+                                                {
+                                                    <td class="text-end" style="@banktransfer">เงินโอน</td>
+                                                }
+
+                                                else
+                                                {
+
+                                                }
+
+
+                                                <td>@data.Login.Fullname</td>
+                                               
+                                                <td class="text-center">
+                                                    <MudMenu FullWidth="true" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft">
+                                                        <ActivatorContent>
+                                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Style="@buttoncolor1">การจัดการ</MudButton>
+                                                        </ActivatorContent>
+                                                        <ChildContent>
+                                                            <MudMenuItem @onclick="()=>ViewExpense(data.TransactionId)">ดูข้อมูล</MudMenuItem>
+                                                          @*   @if (data.SubjectId == 21)
+                                                            {
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <MudMenuItem @onclick="()=>EditExpense(data.TransactionId)">แก้ไข</MudMenuItem>
+                                                                <MudMenuItem @onclick="()=>delete(data.TransactionId)">ลบ</MudMenuItem>
+                                                            } *@
+
+                                                           
+
+                                                        </ChildContent>
+                                                    </MudMenu>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                   
+                                
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+       
+
+    </div>
+
+</div>
+
+
+
+
+
+@* view Dialog *@
+<MudDialog @bind-IsVisible="viewExpense" Options="dialogOptions">
+    <TitleContent>
+        <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/research.svg" alt="" style="width:3rem;"> ดูข้อมูลรายการ</MudText>
+    </TitleContent>
+    <DialogContent>
+        <div class="container-fluid mt-4 mb-4">
+            <div class="card inner-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-12 mt-3 mb-3">
+                            <MudList>
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">เลขที่ธุรกรรม : <span style="@detailtext">@to_view.TransectionRef</span></MudText></MudListItem>                               
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">รายการธุรกรรม : <span style="@detailtext">@to_view.Subject.SubjectCode | @to_view.Subject.SubjectName</span></MudText></MudListItem>
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">จำนวนเงิน : <span style="@detailtext">@to_view.Price</span></MudText></MudListItem>
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">คำอธิบาย : <span style="@detailtext">@to_view.Detial</span></MudText></MudListItem>
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">วันที่ทำรายการ : <span style="@detailtext">@to_view.CreateAt.ToString("dd/MM/yyyy hh:mm:ss")</span></MudText></MudListItem>
+                                <MudListItem><MudText Typo="Typo.body1" Style="@imporText">ผู้ทำรายการ : <span style="@detailtext">@to_view.Login.Fullname</span></MudText></MudListItem>
+                            </MudList>
+                        </div>
+                        @if(to_view.SlipUrl != null){
+                            <div class="col-12 mt-3 text-center">
+                                <img src="@to_view.SlipUrl" style="width:70%;"/>
+                            </div>
+
+                        }
+                      
+
+
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </DialogContent>
+
+</MudDialog>
+
+
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    string receivedmoney = "color:#2ba037; font-weight:600;";
+    string outmoney = "color:#7f0011; font-weight:600;";
+    string cash = "color:#0E6655; font-weight:600;";
+    string banktransfer = "color:#5B2C6F ; font-weight:600;";
+
+    [Parameter]
+    public int b_id { get; set; }
+
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+
+    List<Branch> list_Branch = new List<Branch>();
+    List<SubjectCost> list_subject = new List<SubjectCost>();
+    List<TransactionHistory> list_TransactionHistory = new List<TransactionHistory>();
+    protected override async Task OnInitializedAsync()
+    {
+        list_subject = db.SubjectCosts.Where(s => s.IsActive == true).OrderBy(s => s.SubjectCode).ToList();
+        list_TransactionHistory  = db.TransactionHistories.Include(s => s.Subject).Include(s => s.Login).Where(s => s.BranchId == b_id).AsNoTracking().OrderByDescending(s => s.CreateAt).Take(100).ToList();
+    }
+    Models.SubjectCost selectSubjectCost = null;
+    Models.SubjectCost _selectSubjectCosth
+    {
+        get { return _selectSubjectCosth; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectSubjectCosth = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    private void Fillter()
+    {
+        if (selectSubjectCost != null && date != null)
+        {
+            list_TransactionHistory = db.TransactionHistories.Include(s => s.Subject).Where(s => s.BranchId == b_id && s.SubjectId == selectSubjectCost.SubjectId && s.CreateAt.Day == date.Value.Day && s.CreateAt.Month == date.Value.Month && s.CreateAt.Year == date.Value.Year).AsNoTracking().OrderByDescending(s => s.CreateAt).ToList();
+        }
+        if (selectSubjectCost != null)
+        {
+            list_TransactionHistory = db.TransactionHistories.Include(s => s.Subject).Where(s => s.BranchId == b_id && s.SubjectId == selectSubjectCost.SubjectId).AsNoTracking().OrderByDescending(s => s.CreateAt).ToList();
+        }
+        if (date != null)
+        {
+            list_TransactionHistory = db.TransactionHistories.Include(s => s.Subject).Where(s => s.BranchId == b_id &&  s.CreateAt.Day == date.Value.Day && s.CreateAt.Month == date.Value.Month && s.CreateAt.Year == date.Value.Year).AsNoTracking().OrderByDescending(s => s.CreateAt).ToList();
+        }
+        StateHasChanged();
+    }
+    private void Reset()
+    {
+        list_subject = db.SubjectCosts.Where(s => s.IsActive == true).OrderBy(s=>s.SubjectCode).ToList();
+        list_TransactionHistory = db.TransactionHistories.Include(s => s.Subject).Where(s => s.BranchId == b_id).AsNoTracking().OrderByDescending(s => s.CreateAt).Take(100).ToList();
+        StateHasChanged();
+    }
+                    
+}

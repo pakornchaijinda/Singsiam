@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\SingSiamDeploy</_PublishTargetUrl>
+    <History>True|2024-06-19T07:30:33.3287522Z;True|2024-02-26T21:13:30.9728959+07:00;True|2024-02-26T16:14:04.9346339+07:00;True|2024-02-26T15:51:36.6625080+07:00;True|2024-02-26T15:48:50.7825584+07:00;True|2024-02-26T15:37:42.7093572+07:00;True|2024-02-26T15:33:20.4565274+07:00;True|2024-02-26T15:14:25.2843516+07:00;True|2024-02-26T15:05:36.4735049+07:00;True|2024-02-26T14:53:28.4624723+07:00;True|2024-02-26T14:47:07.2665747+07:00;True|2024-02-26T14:35:14.9416832+07:00;True|2024-02-25T11:51:02.0370213+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

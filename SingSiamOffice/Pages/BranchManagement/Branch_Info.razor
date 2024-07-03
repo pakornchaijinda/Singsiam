@@ -1,0 +1,231 @@
+﻿@page "/branch-info/{b_id:int}"
+@* <h3>Branch_Info</h3> *@
+@using SingSiamOffice.Manage
+@inject BranchService branchService
+@using Models
+
+<Navbar></Navbar>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/branches.svg" alt="" style="width:3rem;"> ดูข้อมูลสาขา</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+             <div class="card-body">
+                 <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <MudField Label="จังหวัด" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.Province</MudField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudField Label="ชื่อสาขา" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.BranchName</MudField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudField Label="รหัสสาขา" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.BranchCode</MudField>
+                    </div>
+                    <div class="col-md-3 pb-3">
+                        <MudField Label="เลขบัญชีสาขา" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.NoBlank</MudField>
+                    </div>
+                    <div class="col-md-3 pb-3">
+                        <MudField Label="ธนาคาร" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.BlankType</MudField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudField Label="เบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.Phone</MudField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudField Label="Google Map Link" Variant="Variant.Outlined" Margin="Margin.Dense">@b_info.BranchMap</MudField>
+                    </div>
+                        <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="b_info.Address" Label="ที่อยู่สาขา" Placeholder="กรุณาระบุที่อยู่สาขา" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="2"></MudTextField>
+                        </div>
+                 </div>
+              
+             </div>
+         </div>
+    </div>
+
+
+    <div class="container mt-4 mb-4">
+            <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 pb-3 text-center">
+                        <MudStack>
+                            <MudText Typo="Typo.body2" Style="@imporText">ยอดเงินคงเหลือประจำสาขา</MudText>
+                            <MudText Typo="Typo.body1"><span style="@imporText">20000</span> บาท</MudText>
+                        </MudStack>
+                    </div>
+                        <div class="col-md-4 pb-3 text-center">
+                        <MudStack>
+                            <MudText Typo="Typo.body2" Style="@imporText">จำนวนรายการกู้</MudText>
+                            <MudText Typo="Typo.body1"><span style="@imporText">20</span> รายการ</MudText>
+                        </MudStack>
+                    </div>
+                        <div class="col-md-4 pb-3 text-center">
+                        <MudStack>
+                            <MudText Typo="Typo.body2" Style="@imporText">จำนวนเงินที่ปล่อยกู้</MudText>
+                            <MudText Typo="Typo.body1"><span style="@imporText">30000000</span> บาท</MudText>
+                        </MudStack>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.PersonOutline" Size="Size.Large" @onclick="()=>viewBranch(b_id)" Style="@buttoncolor1">ข้อมูลลูกค้า / คนค้ำประกัน</MudButton>
+                    </div>
+                 
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+            <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                  <div class="col-md-12 mt-4 mb-4">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead style="@tableheader">
+                                    <tr>
+                                        <th scope="col">รหัสพนักงาน</th>
+                                        <th scope="col">ชื่อ - นามสกุล</th>
+                                        <th scope="col">ตำแหน่ง</th>
+                                        <th scope="col">เบอร์โทรติดต่อ</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var data in list_em)
+                                    {
+                                        <tr>
+                                            <td>@data.Code</td>
+                                            <td>@data.Fullname</td>
+                                            <td>@data.Position</td>
+                                            <td>@data.Phone</td>
+
+                                            <td class="text-end">
+                                                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.SwapHorizontalCircle" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>TransferEmployee(data.Id)">โยกย้ายสาขา</MudButton>
+                                            </td>
+                                        </tr>
+                                    }
+                             
+                                </tbody>
+
+                            </table>
+                        </div>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@* transfer Dialog *@
+<MudDialog @bind-IsVisible="transferEmployee" Options="dialogOptions">
+  
+    <DialogContent>
+        <div class="container mt-4 mb-4">
+            <div class="card outer-card">
+                <div class="card-body">
+                    <div class="row text-center">
+                        <div class="col-md-12 mt-4 mb-4">
+                            <MudText Typo="Typo.h5">โยกย้ายสาขา</MudText>
+                        </div>
+                        <div class="col-md-12 mt-4 mb-4">
+                            <div class="icon"> <img src="img/branch/swap.svg" style="width:6rem;"> </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <MudField Label="@text_brach" Variant="Variant.Filled" Margin="Margin.Dense"></MudField>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <div class="icon"> <img src="img/branch/down-arrow.svg" style="width:3rem;"> </div>
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <MudAutocomplete T="Branch" Label="ระบุสาขาที่ต้องการย้าย" @bind-Value="selectBranch" SearchFunc="SearchBranch" ToStringFunc="@(e=> e==null?null : $"{e.BranchCode} | {e.BranchName}")" Margin="Margin.Dense" Variant="Variant.Outlined" />
+
+                          
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.SwapHorizontalCircle" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>move()">ย้ายสาขา</MudButton>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </DialogContent>
+
+</MudDialog>
+
+
+@code {
+    [Parameter]
+    public int b_id { get; set; }
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    string text_brach = "";
+    string cardcss = "box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);transition: 0.3s;";
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+    Branch b_info = new Branch();
+    List<Branch> list_b = new List<Branch>();
+    List<Login> list_em = new List<Login>();
+    protected override async Task OnInitializedAsync()
+    {
+        list_b = db.Branches.ToList();
+        b_info = list_b.Where(s => s.Id == b_id).FirstOrDefault();
+        list_b.RemoveAll(s => s.Id == b_id);
+        list_em = db.Logins.Where(s => s.BranchId == b_id).ToList();
+
+        text_brach = b_info.BranchCode + " | " + b_info.BranchName;
+
+        branchService.branch_ID = b_id;
+
+    }
+
+    Models.Branch selectBranch = null;
+    Models.Branch _selectBranch
+    {
+        get { return _selectBranch; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectBranch = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    private async Task<IEnumerable<Branch>> SearchBranch(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return list_b;
+        return list_b.Where(x => x.BranchName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+}

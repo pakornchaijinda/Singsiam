@@ -1,0 +1,116 @@
+﻿@page "/edit-blacklist/{b_id:int}"
+@* <h3>EditBlackList</h3> *@
+@using Models
+@using Microsoft.EntityFrameworkCore;
+<Navbar2></Navbar2>
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                    <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/edit.svg" alt="" style="width:3rem;"> แก้ไขข้อมูล Blacklist</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ข้อมูล Blacklist</MudText>
+                    </div>
+
+                    <div class="col-md-4 pb-3">
+                        <MudText Typo="Typo.body1">เลขบัตรประจำตัวประชาชน <span style="color:red;">*</span></MudText>
+                        <MudAutocomplete T="Customer" @bind-Value="selectCus" SearchFunc="@SearchCus" ToStringFunc="@(e=> e==null?null : $"{e.NatId} | {e.FullName}")" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" />
+
+                    </div>
+                    @if (selectCus != null)
+                    {
+                        <div class="col-md-4 pb-3">
+                            <MudText Typo="Typo.body1">ชื่อ นามสกุล <span style="color:red;">*</span></MudText>
+                            <input class="form-control" value="@selectCus.FullName" type="text" />
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudText Typo="Typo.body1">เบอร์โทรสัพท์ <span style="color:red;">*</span></MudText>
+                            <input class="form-control" value="@selectCus.Phone" type="text" />
+                        </div>
+                    }
+
+                    <div class="col-md-12 col-sm-12 pb-3">
+                        <MudTextField @bind-Value="edit_black.Detial" Label="คำอธิบาย" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="5"></MudTextField>
+                    </div>
+                    <hr />
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudText Typo="Typo.body2" Style="@headertext">กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนก่อนการเพิ่มข้อมูล</MudText>
+                    </div>
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goback()">กลับ</MudButton>
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit()">เพิ่ม Blacklist</MudButton>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Parameter]
+    public int b_id { get; set; }
+
+
+    Models.Customer selectCus = null;
+    Models.Customer _selectCus
+    {
+        get { return _selectCus; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectCus = value;
+                name = _selectCus.FullName;
+                tel = _selectCus.Phone;
+                StateHasChanged();
+            }
+            else
+            {
+
+            }
+        }
+
+    }
+
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+    List<Customer> list_cus = new List<Customer>();
+    Models.BlackList edit_black = new BlackList();
+    protected override async Task OnInitializedAsync()
+    {
+        list_cus = db.Customers.Where(s => s.BranchId == b_id).ToList();
+        edit_black = db.BlackLists.Include(s=>s.Customer).Where(s => s.BlackId == b_id).FirstOrDefault();
+        selectCus = edit_black.Customer;
+    }
+    private async Task<IEnumerable<Customer>> SearchCus(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return list_cus;
+        return list_cus.Where(x => x.FullName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+}

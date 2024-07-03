@@ -1,0 +1,582 @@
+﻿@page "/view-contract/{branch_id:int}/{c_id:int}/{promise_id:int}"
+@using System.Globalization;
+@* <h3>ViewContract</h3> *@
+
+
+
+
+@if (role == "admin")
+{
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <NavLink href="/dashboard-admin" class="navbar-brand mx-4 mb-3">
+                <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:15rem;">
+            </NavLink>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="ms-3">
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">Admin</span>
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <NavLink href="/dashboard-admin" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+                <NavLink href="/branchManagement-list" class="nav-item nav-link active"><img class="rounded-circle" src="img/icons/branches.svg" alt="" style="width:3rem;"> จัดการสาขา</NavLink>
+                <NavLink href="/employee-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/employee.svg" alt="" style="width:3rem;"> จัดการพนักงาน</NavLink>
+                @*   <NavLink href="/deptcollection-list" class="nav-item nav-link"><i class="fa fa-table me-2"></i>รายงาน</NavLink> *@
+                <div class="nav-item dropdown">
+                    <NavLink href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img class="rounded-circle" src="img/icons/report.svg" alt="" style="width:3rem;"> รายงาน</NavLink>
+                    <div class="dropdown-menu bg-transparent border-0">
+                        <NavLink href="/contract-report" class="dropdown-item">สัญญา</NavLink>
+                        <NavLink href="/expense-report" class="dropdown-item">รายรับ - รายจ่ายสาขา</NavLink>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!-- Sidebar End -->
+}
+@if (role == "employee")
+{
+    <!-- Sidebar Start -->
+    <div class="sidebar pe-4 pb-3">
+        <nav class="navbar bg-light navbar-light">
+            <NavLink href="/dashboard" class="navbar-brand mx-4 mb-3">
+                <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:15rem;">
+            </NavLink>
+            <div class="d-flex align-items-center ms-4 mb-4">
+                <div class="ms-3">
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">เจ้าหน้าที่: @globalData.username </span> |
+                    <span class="d-none d-lg-inline-flex" style="color: #840012;">ประจำสาขา : @globalData.branch_name</span>
+                </div>
+            </div>
+            <div class="navbar-nav w-100">
+                <NavLink href="/dashboard" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+                <NavLink href="/customerlist" class="nav-item nav-link active"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> ข้อมูลลูกค้า</NavLink>
+                <NavLink href="/blacklist_list" class="nav-item nav-link "><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> Blacklist</NavLink>
+                <NavLink href="/deptcollection-list" class="nav-item nav-link "><img class="rounded-circle" src="img/icons/customer-service.svg" alt="" style="width:3rem;"> ติดตาม</NavLink>
+                <NavLink href="/expense-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/expense.svg" alt="" style="width:3rem;"> รายรับ - รายจ่าย</NavLink>
+
+            </div>
+        </nav>
+    </div>
+
+}
+<!-- Sidebar End -->
+
+<div class="content">
+    <Header/>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img src="img/icons/contractview.svg" alt="" style="width:3rem;"> ข้อมูลสัญญา</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-header" style="@tableheader">ข้อมูลลูกค้า</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 pb-3 text-center">
+                        <img src="@_customer.CusImg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8 pb-3">
+                        <div class="row">
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">เลขบัตรประจำตัวประชาชน</MudText>
+                                    <MudText Typo="Typo.body1">@_customer.NatId</MudText>
+                                </MudStack>
+
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">ชื่อ - สกุล</MudText>
+                                    <MudText Typo="Typo.body1">@_customer.FullName</MudText>
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">เบอร์โทรศัพท์</MudText>
+                                    <MudText Typo="Typo.body1">@_customer.Phone</MudText>
+                                </MudStack>
+                            </div>
+                            <hr />
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">ที่อยู่</MudText>
+                                    <MudText Typo="Typo.body2">
+                                        @_customer.Address
+                                    </MudText>
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">สถานะลูกค้า</MudText>
+                                    @if (_customer.Status == 1)
+                                    {
+                                        <MudChip Variant="Variant.Text" Color="Color.Success">ปกติ</MudChip>
+                                    }
+                                    else
+                                    {
+                                        <MudChip Variant="Variant.Text" Color="Color.Success">ติด Blacklist</MudChip>
+                                    }
+
+                                </MudStack>
+                            </div>
+                            <div class="col-4 pb-3 text-center">
+                                <MudStack>
+                                    <MudText Typo="Typo.body1" Style="@imporText">Link - map</MudText>
+                                    <a href="@_customer.LocationLink" target="_blank">ดูแผนที่</a>
+                                </MudStack>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer">
+            <div class="card-header" style="@tableheader">
+                <MudText Typo="Typo.body1">ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">@_promises.Product.Name</MudChip></MudText>
+              @*  @if (collateral_type == 1)
+                {
+                    <MudText Typo="Typo.body1">ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">รกจักรยานยนต์</MudChip></MudText>
+                }
+                @if (collateral_type == 2)
+                {
+                    <MudText Typo="Typo.body1"> ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">รถยนต์</MudChip></MudText>
+                }
+                @if (collateral_type == 3)
+                {
+                    <MudText Typo="Typo.body1">ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">รถเพื่อการเกษตร</MudChip></MudText>
+                }
+                @if (collateral_type == 4)
+                {
+                    <MudText Typo="Typo.body1"> ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">โฉนดที่ดิน</MudChip></MudText>
+                }
+                @if (collateral_type == 5)
+                {
+                    <MudText Typo="Typo.body1">ข้อมูลหลักประกัน : <MudChip Variant="Variant.Filled" Color="Color.Info">สมุดทะเบียนเกษตรกร</MudChip></MudText>
+                }*@
+            </div>
+            <div class="card-body">
+                @if (_promises.ProductId == 1)
+                {
+                    <div class="row">
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_brand" Label="ยี่ห้อรถ" Placeholder="ระบุยี่ห้อ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_color" Label="สีรถ" Placeholder="ระบุสีรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.chassisNo" Label="เลขตัวรถ" Placeholder="ระบุเลขตัวรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_ver" Label="รุ่น" Placeholder="ระบุรุ่น" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.plate" Label="เลขทะเบียน" Placeholder="ระบุเลขทะเบียน" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.machineNo" Label="เลขเครื่อง" Placeholder="ระบุเลขเครื่อง" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_yr" Label="รถปี" Placeholder="ระบุรถปี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="_promises.Province.ProvinceName" Label="จังหวัด" Placeholder="ระบุจังหวัด" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.tax_issue" Label="วันเสียภาษี" Placeholder="ระบุวันเสียภาษี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-md-12 text-center pb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="@_promises.UploadImg" alt="" style="width: 20rem;">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+                @if (_promises.ProductId == 2)
+                {
+                    <div class="row">
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_brand" Label="ยี่ห้อรถ" Placeholder="ระบุยี่ห้อ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                         <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_color" Label="สีรถ" Placeholder="ระบุสีรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.chassisNo" Label="เลขตัวรถ" Placeholder="ระบุเลขตัวรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_ver" Label="รุ่น" Placeholder="ระบุรุ่น" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.plate" Label="เลขทะเบียน" Placeholder="ระบุเลขทะเบียน" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.machineNo" Label="เลขเครื่อง" Placeholder="ระบุเลขเครื่อง" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_yr" Label="รถปี" Placeholder="ระบุรถปี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="_promises.Province.ProvinceName" Label="จังหวัด" Placeholder="ระบุจังหวัด" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.tax_issue" Label="วันเสียภาษี" Placeholder="ระบุวันเสียภาษี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-md-12 text-center pb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="data:image/jpeg;base64,@imgbase64" alt="" style="height:20rem; width:20rem;">
+                                    
+                                </div>
+                            </div>
+
+                        </div> 
+                    </div>
+                }
+                @if (_promises.ProductId == 4)
+                {
+                    <div class="row">
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_brand" Label="ยี่ห้อรถ" Placeholder="ระบุยี่ห้อ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_color" Label="สีรถ" Placeholder="ระบุสีรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.chassisNo" Label="เลขตัวรถ" Placeholder="ระบุเลขตัวรถ" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_ver" Label="รุ่น" Placeholder="ระบุรุ่น" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.plate" Label="เลขทะเบียน" Placeholder="ระบุเลขทะเบียน" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.machineNo" Label="เลขเครื่อง" Placeholder="ระบุเลขเครื่อง" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.vehicle_yr" Label="รถปี" Placeholder="ระบุรถปี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="_promises.Province.ProvinceName" Label="จังหวัด" Placeholder="ระบุจังหวัด" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral1.tax_issue" Label="วันเสียภาษี" Placeholder="ระบุวันเสียภาษี" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-md-12 text-center pb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="@_promises.UploadImg" alt="" style="width: 20rem;">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+              
+                @if (_promises.ProductId == 3)
+                {
+                    <div class="row">
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral2.deedType" Label="ประเภทโฉนด" Placeholder="ระบุประเภทโฉนด" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField @bind-Value="collateral2.deedNo" Label="เลขที่โฉนด" Placeholder="ระบุเลขที่โฉนด" Variant="Variant.Outlined" Margin="Margin.Dense" ReadOnly></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.landType" Label="ประเภทที่ดิน" Placeholder="ระบุประเภทที่ดิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.mapsheet" S Label="ระวาง" Placeholder="ระบุระวาง" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.parcelNo" Label="เลขที่ดิน" Placeholder="ระบุเลขที่ดิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.volumn" Label="เล่ม" Placeholder="ระบุเล่ม" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.page" Label="หน้า" Placeholder="ระบุหน้า" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.pageInspect" Style="@field_box" Label="หน้าสำรวจ" Placeholder="ระบุหน้าสำรวจ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral2.landAmount" Style="@field_box" Label="จำนวนที่ดิน" Placeholder="ระบุจำนวนที่ดิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-12 text-center pb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="@_promises.UploadImg" alt="" style="width: 20rem;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (_promises.ProductId == 5)
+                {
+                    <div class="row">
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.bookNo" Label="เลขที่สมุด" Placeholder="ระบุเลขที่สมุด" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.farmerCode" Label="รหัสเกษตรกร" Placeholder="ระบุรหัสเกษตรกร" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fregisDate" Label="วันที่ขึ้นทะเบียน" HelperText="ตัวอย่าง 01/12/2566" Placeholder="ระบุวันที่ขึ้นทะเบียน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.docRight" Label="เอกสารสิทธิ์" Placeholder="ระบุเอกสารสิทธิ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fHolding" Label="การถือครอง" Placeholder="ระบุการถือครอง" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fActivity" Label="กิจกรรม" Placeholder="ระบุกิจกรรม" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fArea" Label="เนื้อที่" Placeholder="ระบุเนื้อที่" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fProduct" Label="ผลผลิต" Placeholder="ระบุผลผลิต" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-3 pb-3">
+                            <MudTextField ReadOnly @bind-Value="collateral3.fLocate" Label="ที่ตั้ง X:Y:Z" Placeholder="ที่ตั้ง X:Y:Z" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-12 text-center pb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <img src="@_promises.UploadImg" alt="" style="width: 20rem;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+         
+        </div>
+
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-header" style="@tableheader">
+                @if (_promises.ContractType == 1)
+                {
+                    <MudText Typo="Typo.body1">ประเภทสัญญา : <MudChip Variant="Variant.Filled" Color="Color.Success">สัญญาไฟแนนท์</MudChip></MudText>
+                }
+                @if (_promises.ContractType == 2)
+                {
+                    <MudText Typo="Typo.body1">ประเภทสัญญา : <MudChip Variant="Variant.Filled" Color="Color.Warning">สัญญาเงินกู้</MudChip></MudText>
+                }
+            </div>
+            <div class="card-body">
+                @if (_promises.ContractType == 1)
+                {
+                    <div class="row">
+
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Daypaid" Label="ชำระทุกวันที่" Variant="Variant.Outlined" Margin="Margin.Dense" ></MudTextField>
+
+                     @*        <MudField Style="@field_box" @bind-Date="paymentTerm" Label="ชำระทุกวันที่" Culture="@GetThaiCulture()" PickerVariant="PickerVariant.Dialog" UseShortNames="false" TitleDateFormat="dddd, dd MMMM" Margin="Margin.Dense" Variant="Variant.Outlined"
+                                                                      Required RequiredError="กรุณาระบุชำระทุกวันที่"  /> *@
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Capital" Label="เงินทำสัญญา" Placeholder="ระบุเงินทำสัญญา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Periods" Label="จำนวนงวด" Placeholder="ระบุจำนวนงวด" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value=" _promises.Interest" Label="ดอกเบี้ย" Placeholder="ระบุดอกเบี้ย" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Amount" Label="งวดละ" Placeholder="ระบุจำนวนที่ชำระต่องวด" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Service" Label="ค่าบริการ" Placeholder="ระบุค่าบริการ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="_promises.Chargeamt" Label="ค่าประกันหนี้" Placeholder="ระบุค่าประกันหนี้" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                       @*   <div class="col-md-4 pb-3">
+                             <MudField Style="@field_box" @bind-Value="carryingCost" Label="ค่านำพา" Placeholder="ระบุค่านำพา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudField>
+                         </div> *@
+                     </div>
+                }
+                @if (_promises.ContractType == 2)
+                {
+                    <div class="row">
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="principle" Label="เงินต้น" Placeholder="ระบุเงินต้น" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="installmentsTerm" Label="จำนวนงวด" Placeholder="ระบุจำนวนงวด" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="interest" Label="ดอกเบี้ย" Placeholder="ระบุดอกเบี้ย" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="installments" Label="งวดละ" Placeholder="ระบุจำนวนที่ชำระต่องวด" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly Style="@field_box" @bind-Value="paymentTerm" Label="ชำระทุกวันที่"  Margin="Margin.Dense" Variant="Variant.Outlined"  />
+                         </div>
+                         @* ค่าธรรมเนียม
+                    รกจักรยานยนต์ คิดเป็น 4% ของยอดกู้
+                    รถยนต์ – โฉนดที่ดิน – รถเพื่อการเกษตร – สมุดทะเบียนเกษตรกร  คิดเป็น 5% ของยอดกู้ *@
+
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="fee" Label="ค่าธรรมเนียม" Placeholder="ระบุค่าธรรมเนียม" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="serviceCharge" Label="ค่าบริการ" Placeholder="ระบุค่าบริการ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="deptInsurant" Label="ค่าประกันหนี้" Placeholder="ระบุค่าประกันหนี้" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+                         <div class="col-md-4 pb-3">
+                             <MudTextField ReadOnly Style="@field_box" @bind-Value="carryingCost" Label="ค่านำพา" Placeholder="ระบุค่านำพา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                         </div>
+
+                     </div>
+                }
+            </div>
+        </div>
+      
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-header" style="@tableheader">
+                @if (guarantor != 1)
+                {
+                    <MudText Typo="Typo.body1">ข้อมูลผู้ค้ำประกัน : <MudChip Variant="Variant.Filled" Color="Color.Error">ไม่มีผู้ค้ำประกัน</MudChip></MudText>
+                }
+                @if (guarantor == 1)
+                {
+                    <MudText Typo="Typo.body1">ข้อมูลผู้ค้ำประกัน  : <MudChip Variant="Variant.Filled" Color="Color.Success">มีผู้ค้ำประกัน</MudChip></MudText>
+                }
+            </div>
+            <div class="card-body">
+                @if(_guarantor.Count > 1)
+                {
+                    <div class="row">
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().GuarantorName" Label="ชื่อ - นามสกุลผู้ค้ำคนที่ 1" Placeholder="ระบุชื่อ - นามสกุลผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().GuarantorRelation" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().Phone" Label="เบอร์โทรติดต่อ" Placeholder="ระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().Address" Label="ที่อยู่ผู้ค้ำคนที่ 1" Placeholder="ระบุที่อยู่ผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.LastOrDefault().GuarantorName" Label="ชื่อ - นามสกุลผู้ค้ำคนที่ 2" Placeholder="ระบุชื่อ - นามสกุลผู้ค้ำคนที่ 2" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.LastOrDefault().GuarantorRelation" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.LastOrDefault().Phone" Label="เบอร์โทรติดต่อ" Placeholder="ระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.LastOrDefault().Address" Label="ที่อยู่ผู้ค้ำคนที่ 2" Placeholder="ระบุที่อยู่ผู้ค้ำคนที่ 2" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                    </div>
+
+                }
+                else if(_guarantor.Count == 1)
+                {
+                    <div class="row">
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().GuarantorName" Label="ชื่อ - นามสกุลผู้ค้ำคนที่ 1" Placeholder="ระบุชื่อ - นามสกุลผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().GuarantorRelation" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().Phone" Label="เบอร์โทรติดต่อ" Placeholder="ระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                        <div class="col-md-4 pb-3">
+                            <MudTextField ReadOnly @bind-Value="_guarantor.FirstOrDefault().Address" Label="ที่อยู่ผู้ค้ำคนที่ 1" Placeholder="ระบุที่อยู่ผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+    </div>
+
+  
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    @if(_promises.Ptype == 1 )
+                    {
+                        <div class="col-6">
+                            <MudText Typo="Typo.body1">ข้อมูลภาษี : <span style="@detailtextgreen">Vat</span> </MudText>
+                    </div>
+                    }else
+                    {
+                        <div class="col-6">
+                            <MudText Typo="Typo.body1">ข้อมูลภาษี : <span style="@detailtextred">NVat</span> </MudText>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 mt-3 mb-4 text-center">
+            <MudButton Variant="Variant.Outlined" DisableElevation="true" Color="Color.Error" @onclick="()=>goBack(branch_id)">ย้อนกลับ</MudButton>
+
+        </div>
+    </div>
+</div>
+
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    string detailtextgreen = "color:#1D8348; font-weight:600; font-style: italic;";
+    string detailtextred = "color:#922B21; font-weight:600; font-style: italic;";
+    string field_box = "background-color:#FFF; color:#020D17; font-weight:600;";
+
+    
+}

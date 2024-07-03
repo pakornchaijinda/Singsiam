@@ -1,0 +1,90 @@
+﻿@page "/edit-expense/{Expense_id:int}"
+@* <h3>EditExpense</h3> *@
+
+<Navbar2></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/add.svg" alt="" style="width:3rem;"> แก้ไขรายการรายรับ - รายจ่าย</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="accountType" Label="รหัสบัญชีรายการธุรกรรม" Variant="Variant.Filled" Margin="Margin.Dense" ReadOnly></MudTextField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="name" Label="ชื่อลูกค้า" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="accountNo" Label="เลขที่สัญญา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="deducted" Label="จำนวนเงินที่หักจากลูกค้า" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 pb-3">
+                        <MudTextField @bind-Value="description" Label="คำอธิบาย" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="5"></MudTextField>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="amount" Label="จำนวนเงิน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                     <div class="col-md-12 pb-3">
+                         <div class="card">
+                             <div class="card-body">
+                                 <div class="row">
+                                     <div class="col-12 mt-3 mb-3">
+                                         <MudText Typo="Typo.body1">ปรับสถานะการทำงาน</MudText>
+                                     </div>
+                                     <div class="col-4 mt-3 mb-3">
+                                         <MudSelect T="string" Label="เลือกสถานะ" Variant="Variant.Outlined" Margin="Margin.Dense" AnchorOrigin="Origin.BottomCenter">
+                                             <MudSelectItem Value="@("รอการตรวจสอบ")" />
+                                             <MudSelectItem Value="@("เสร็จสิ้น")" />
+                                         </MudSelect>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     <hr/>
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudText Typo="Typo.body2" Style="@headertext">กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนก่อนการเพิ่มข้อมูล</MudText>
+                    </div>
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goback()">กลับ</MudButton>
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit()">แก้ไขรายการ</MudButton>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    [Parameter]
+    public int Expense_id {get;set;}
+
+}

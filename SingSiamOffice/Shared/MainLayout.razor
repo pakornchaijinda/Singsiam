@@ -1,0 +1,64 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>SingSiamOffice</PageTitle>
+
+
+<MudThemeProvider Theme="SingSiamTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<style>
+    html, body{
+        background-color:#fff8f7;
+    }
+</style>
+
+@* <div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+ *@
+
+@Body
+<!-- Back to Top -->
+@* <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> *@
+
+
+
+@code {
+
+    MudTheme SingSiamTheme = new MudTheme()
+        {
+
+            Typography = new Typography()
+            {
+                Default = new Default() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = ".875rem", LineHeight = 1.43, LetterSpacing = ".01071em" },
+                H1 = new H1() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 300, FontSize = "6rem", LineHeight = 1.167, LetterSpacing = "-.01562em" },
+                H2 = new H2() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 300, FontSize = "3.75rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                H3 = new H3() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = "3rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                H4 = new H4() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = "2.125rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                H5 = new H5() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = "1.5rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                H6 = new H6() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 500, FontSize = "1.25rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Subtitle1 = new Subtitle1() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = "1rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Subtitle2 = new Subtitle2() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 500, FontSize = ".875rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Body1 = new Body1() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = "1rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Body2 = new Body2() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = ".875rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Button = new Button() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 500, FontSize = ".875rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Caption = new Caption() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = ".75rem", LineHeight = 1.2, LetterSpacing = "-.00833em" },
+                Overline = new Overline() { FontFamily = new string[] { "Bai Jamjuree", "sans-serif" }, FontWeight = 400, FontSize = ".75rem", LineHeight = 1.2, LetterSpacing = "-.00833em" }
+
+            }
+        };
+
+}

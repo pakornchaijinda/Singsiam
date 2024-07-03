@@ -1,0 +1,318 @@
+﻿@page "/customerlist/{b_id:int}"
+@* <h3>CustomerList</h3> *@
+@using Models
+
+
+<Navbar2></Navbar2>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div class="col-md-6 pb-3">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:2rem;"> ข้อมูลลูกค้าประจำสาขา : @b_info.BranchName | @b_info.BranchCode</MudText>
+            </div>
+            <div class="col-md-6 text-end">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>addCustomer(b_id)">เพิ่มลูกค้า</MudButton>
+             @*    <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goDeptConlection(b_id)">ติดตาม</MudButton>
+                <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goBlacklist(b_id)">Blacklist</MudButton> *@
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+    <div class="card">
+        <div class="card-body">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ค้นหาข้อมูลลูกค้า</MudText>
+
+                    </div>
+                    <div class="col-3 pb-3">
+                        <MudAutocomplete T="Customer" Label="กรอกเลขบัตรหรือชื่อที่ต้องการค้นหา" @bind-Value="selectCustomer" Margin="Margin.Dense" ToStringFunc="@(e=> e==null?null : $"{e.NatId} | {e.FullName}")" SearchFunc="@SearchValue" Variant="Variant.Outlined" />
+
+                    </div>
+                   
+                    <div class="col-6 pb-3">
+                        <MudStack Row="true" Spacing="1">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Search" Size="Size.Large" Color="Color.Info" @onclick="()=> fillter()">ค้นหา</MudButton>
+                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Close" Size="Size.Large" Color="Color.Error" @onclick="()=> reset()">ล้างข้อมูล</MudButton>
+                        </MudStack>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+       
+
+    </div>
+
+    <div class="container-fluid mt-4 mb-4">
+      <div class="row">
+            @if (list_customer.Count == 0)
+            {
+                <div class="col-12 text-center mt-5">
+                    <h3>ยังไม่มีลูกค้าในสาขา</h3>
+                </div>
+            }
+            @foreach (var data in list_customer)
+            {
+                  <div class="col-12">
+                    <div class="mx-auto">
+
+
+                        <div class="card mb-3">
+                            <div class="row g-0">
+                                <div class="col-md-2">
+                                    <div class="card-body text-center">
+                                        <img src="@data.CusImg" class="img-fluid rounded-start" alt="...">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">เลขบัตรประจำตัวประชาชน</MudText>
+                                                            <MudText Typo="Typo.body1">@data.NatId</MudText>
+                                                        </MudStack>
+
+                                                    </div>
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">ชื่อ - สกุล</MudText>
+                                                            <MudText Typo="Typo.body1">@data.FullName</MudText>
+                                                        </MudStack>
+                                                    </div>
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">เบอร์โทรศัพท์</MudText>
+                                                            <MudText Typo="Typo.body1">@data.Phone</MudText>
+                                                        </MudStack>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">ที่อยู่</MudText>
+                                                            <MudText Typo="Typo.body2">
+                                                                @data.Address
+                                                            </MudText>
+                                                        </MudStack>
+                                                    </div>
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">สถานะลูกค้า</MudText>
+                                                            <MudChip Variant="Variant.Text" Color="Color.Success">ปกติ</MudChip>
+                                                        </MudStack>
+                                                    </div>
+                                                    <div class="col-4 pb-3 text-center">
+                                                        <MudStack>
+                                                            <MudText Typo="Typo.body1" Style="@imporText">Link - map</MudText>
+                                                            <a href="@data.LocationLink" target="_blank">ดูแผนที่</a>
+                                                        </MudStack>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card-body">
+                                                <MudStack Row="true">
+                                                    <MudText Typo="Typo.body1">เมนูจัดการ</MudText>
+                                                    <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Edit" Size="Size.Large" Color="Color.Error" @onclick="()=>editCustomer(data.CustomerId)">แก้ไขข้อมูลส่วนตัว</MudButton>
+                                                    <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.PostAdd" Size="Size.Large" Color="Color.Error" @onclick="()=>addContract(data.CustomerId,b_id)">เพิ่มสัญญา</MudButton>
+
+                                                </MudStack>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+                                    <MudPaper Class="pa-4">
+                                        <MudStack Spacing="2">
+                                            <MudButton OnClick="() => OnExpandCollapseClick(data.CustomerId)" Variant="Variant.Filled" Style="@buttoncollape">
+                                                @if (_expandedStates[data.CustomerId])
+                                                {
+                                                    <MudText Typo="Typo.body1">รายการสัญญาที่ทำ <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" Style="@buttoncollape" /></MudText>
+                                                }
+                                                else
+                                                {
+                                                    <MudText Typo="Typo.body1">รายการสัญญาที่ทำ <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowUp" Style="@buttoncollape" /></MudText>
+
+                                                }
+
+
+                                            </MudButton>
+
+                                            <MudDivider />
+                                            <MudCollapse Expanded="_expandedStates[data.CustomerId]">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">ว/ด/ป</th>
+                                                                <th scope="col">ประเภท</th>
+                                                                <th scope="col">อ้างอิง</th>
+                                                                <th scope="col">หลักประกัน</th>
+                                                                <th scope="col">เลขที่สัญญา</th>
+                                                                <th scope="col">เงินต้น</th>
+                                                                <th scope="col">งวดละ</th>
+                                                                <th scope="col">สาขา</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach(var items in lst_Promises)
+                                                            {
+                                                                <tr>
+
+                                                                    <td>@items.Tdate</td>
+                                                                    @if (items.ContractType == 1)
+                                                                    {
+                                                                        <td>ค่าประกันหนี้</td>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <td>สัญญาไฟแนนท์</td>
+                                                                    }
+                                                                    <td>@items.Refcode</td>
+                                                                    <td>@items.Product.Name</td>
+                                                                    <td>@items.Promiseno</td>
+                                                                    <td>@items.Capital</td>
+                                                                    <td>@items.Amount</td>
+                                                                    <td>@items.Branch.BranchName</td>
+
+                                                                    <td class="text-end">
+                                                                        <MudStack Row="true" Class="mt-2">
+                                                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.RemoveRedEye" Color="Color.Default" @onclick="()=>viewContract( items.CustomerId,items.Id,items.BranchId)">ดูข้อมูลสัญญา</MudButton>
+                                                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Money" Style="@buttoncolor1" @onclick="()=>goPayment(items.CustomerId,items.Id,items.BranchId)">ชำระค่างวด</MudButton>
+                                                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.StickyNote2" Size="Size.Large" Style="@buttoncolor2" @onclick="()=>goCustomerDept(1)">หนี้อื่นๆ</MudButton>
+                                                                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Remove" Color="Color.Error" @onclick="()=>deleteContract(1)">ยกเลิกสัญญา</MudButton>
+                                                                        </MudStack>
+                                                                    </td>
+                                                                </tr>
+                                                            }
+                                                        
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+                                            </MudCollapse>
+                                        </MudStack>
+                                    </MudPaper>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+           
+      </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string buttoncolor2 = "background-color:#FFBF00; color:#1C2833; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Parameter]
+    public int b_id { get; set; }
+
+
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+
+    Branch b_info = new Branch();
+    List<Customer> list_customer = new List<Customer>();
+    protected override async Task OnInitializedAsync()
+    {
+
+
+        b_info = db.Branches.Where(s => s.IsActive == true && s.Id == b_id).FirstOrDefault();
+        list_customer = db.Customers.Where(s => s.BranchId == b_id).ToList();
+        foreach (var data in list_customer)
+        {
+            _expandedStates[data.CustomerId] = false; // You can set initial state as desired
+
+        }
+    }
+
+    List<int> Sections = new List<int> { 1, 2, 3 }; // Example dynamic range of sections
+    Dictionary<int, bool> _expandedStates = new Dictionary<int, bool>();
+
+
+    private async void OnExpandCollapseClick(int cus_id)
+    {
+        _expandedStates[cus_id] = !_expandedStates[cus_id];
+         lst_Promises =await managements.GetPromisebyCustomerId(cus_id);
+        // Toggle the state of the clicked section
+    }
+    Models.Customer selectCustomer = null;
+    Models.Customer _selectCustomer
+    {
+        get { return _selectCustomer; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectCustomer = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    private void fillter()
+    {
+        if (selectCustomer!=null)
+        {
+            list_customer = list_customer.Where(s => s.CustomerId == selectCustomer.CustomerId).ToList();
+
+            StateHasChanged();
+        }
+       
+    }
+    private void reset()
+    {
+        selectCustomer = null;
+        b_info = db.Branches.Where(s => s.IsActive == true).FirstOrDefault();
+        list_customer = db.Customers.Where(s => s.BranchId == b_id).ToList();
+        foreach (var data in list_customer)
+        {
+            _expandedStates[data.CustomerId] = false; // You can set initial state as desired
+
+        }
+    }
+    private async Task<IEnumerable<Customer>> SearchValue(string value)
+    {
+        // In real life use an asynchronous function for fetching data from an api.
+        await Task.Delay(5);
+
+        // if text is null or empty, show complete list
+        if (string.IsNullOrEmpty(value))
+            return list_customer;
+        return list_customer.Where(x => x.NatId.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.FullName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
+    }
+}

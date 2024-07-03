@@ -1,0 +1,98 @@
+﻿@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject AuthenticationStateProvider authStateProvider
+@using MudBlazor
+@using SingSiamOffice.Authentication
+@using System.Security.Claims
+@using SingSiamOffice.Manage
+@using SingSiamOffice.Models
+@inject NavigationManager NavManager
+@inject UserLoginService userLoginService
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand bg-navtop  navbar-light sticky-top px-4 py-0">
+@*     <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+        <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:13rem; margin-top:1rem;">
+    </a> *@
+    <a href="#" class="sidebar-toggler flex-shrink-0">
+        <i class="fa fa-bars"></i>
+    </a>
+  
+    <div class="navbar-nav align-items-center ms-auto">
+       
+        <div class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                <img class="rounded-circle me-lg-2" src="@user_login.Img" alt="" style="width: 40px; height: 40px;">
+                <span class="d-none d-lg-inline-flex" style="color: white;">@user_login.Fullname</span> |
+                <span class="d-none d-lg-inline-flex" style="color: white;">@rolename</span> |
+                <span class="d-none d-lg-inline-flex" style="color: white;">ประจำสาขา : @b_name</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+       
+                <a href="#" class="dropdown-item" @onclick="()=>logoff()">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+@code {
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTasks { get; set; }
+    AuthenticationState auth;
+
+    [Inject]
+    Manage.UserManagement _userManager { get; set; }
+    [Inject]
+    Manage.EventLog eventLog { get; set; }
+
+    private async Task logoff()
+    {
+        SingSiamOffice.Models.EventLog toAdd = new SingSiamOffice.Models.EventLog
+            {
+                Uuid = Guid.NewGuid(),
+                TableName = "login",
+                Opertation = "Logout",
+                UpdateBy = eventLog.Update_by
+
+            };
+        await management.AddEventLog(toAdd);
+        var customAuthStateProvider = (CustomAuthenticationStateProvider)authStateProvider;
+        await customAuthStateProvider.UpdateAuthenticationState(null);
+
+
+        NavManager.NavigateTo("/", true);
+    }
+    [Inject]
+    Manage.UserManagement management { get; set; }
+    string rolename { get; set; }
+    string username { get; set; }
+    string b_name { get; set; }
+    Login user_login = new Login();
+    SingsiamdbContext db = new SingsiamdbContext();
+    string roleid;
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authenticationState.User;
+        //auth = await authenticationStateTask;
+        if (user.Identity.IsAuthenticated)
+        {
+            var roleClaim = user.FindFirst(ClaimTypes.Role);
+            var userClaim = user.FindFirst(ClaimTypes.Name);
+            if (roleClaim != null)
+            {
+                rolename = roleClaim.Value;
+                username = userClaim.Value;
+                user_login = db.Logins.Where(s => s.Username == username).FirstOrDefault();
+                b_name = db.Branches.Where(s => s.Id == user_login.BranchId).FirstOrDefault().BranchName;
+
+                userLoginService.UserLogin = user_login;
+            }
+            else
+            {
+                // Handle case where user doesn't have a role claim
+                rolename = "Unknown";
+            }
+
+        }
+    }
+}

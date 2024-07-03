@@ -1,0 +1,205 @@
+﻿@page "/employee-list"
+@* <h3>EmployeeManagementList</h3> *@
+@using Models
+<Navbar></Navbar>
+
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudStack Row="true">
+                    <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/employee.svg" alt="" style="width:3rem;"> จัดการพนักงาน</MudText>
+                    <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>addEmployee()">เพิ่มพนักงานใหม่</MudButton>
+                </MudStack>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ค้นหาข้อมูลพนักงาน</MudText>
+                    </div>
+                    <div class="col-3 pb-3">
+                        <MudText Typo="Typo.body1">ตำแหน่ง <span style="color:red;">*</span></MudText>
+                        <MudAutocomplete T="Role" @bind-Value="selectRole" SearchFunc="@SearchRole" ToStringFunc="@(e=> e==null?null : $"{e.RoleName}")" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" />
+                    </div>
+                    <div class="col-3 pb-3">
+                        <MudText Typo="Typo.body1">สาขา <span style="color:red;">*</span></MudText>
+                        <MudAutocomplete T="Branch" @bind-Value="selectBranch" SearchFunc="@SearchBranch" ToStringFunc="@(e=> e==null?null : $"{e.BranchName}")" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" />
+                    </div>
+                       <div class="col-3 pb-3">
+                        <MudText Typo="Typo.body1">ชื่อ นามสกุล <span style="color:red;">*</span></MudText>
+                        <MudAutocomplete T="Login" @bind-Value="selectLogin" SearchFunc="@SearchName" ToStringFunc="@(e=> e==null?null : $"{e.Fullname}")" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" />
+                    </div>
+                    <div class="col-6 pb-3">
+                        <MudStack Row="true" Spacing="1">
+                            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Search" Size="Size.Large" Color="Color.Info" @onclick="()=>SearchData()">ค้นหา</MudButton>
+                            <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Delete" Size="Size.Large" Color="Color.Error" @onclick="()=>clearSearch()">ล้างข้อมูล</MudButton>
+                        </MudStack>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="col-12 pb-3">
+                    <MudText Typo="Typo.body1" Style="@headertext">ข้อมูลพนักงาน</MudText>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead style="@tableheader">
+                            <tr>
+                               
+                                <th>รหัสพนักงาน</th>
+                                <th>ชื่อ - นามสกุล</th>
+                                <th>เบอร์โทรศัพท์</th>
+                                <th>สาขา</th>
+                                <th>สถานะ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var data in List_employ)
+                            {
+                                <tr>
+
+                                   
+                                    <td>@data.Code</td>
+                                    <td>@data.Fullname</td>
+                                    <td>@data.Phone</td>
+                                    <td>@data.Branch.BranchName</td>
+                                    @if(data.IsActive){
+                                        <td><MudChip Color="Color.Success">เปิดใช้งาน</MudChip></td>
+                                    }
+                                    else{
+                                        <td><MudChip Color="Color.Error">ปิดใช้งาน</MudChip></td>
+                                    }
+                                    
+                                    <td>
+                                        <MudMenu FullWidth="true" AnchorOrigin="Origin.TopRight" TransformOrigin="Origin.TopLeft">
+                                            <ActivatorContent>
+                                                <MudButton Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.Settings" Style="@buttoncolor1">การจัดการ</MudButton>
+                                            </ActivatorContent>
+                                            <ChildContent>
+                                                <MudMenuItem @onclick="()=>viewEmployee(data.Id)">ดูข้อมูล</MudMenuItem>
+                                                <MudMenuItem @onclick="()=>editEmployee(data.Id)">แก้ไข</MudMenuItem>
+                                                <MudMenuItem @onclick="()=>delete(data.Id)">ลบ</MudMenuItem>
+
+                                            </ChildContent>
+                                        </MudMenu>
+                                    </td>
+
+                                </tr>
+                              
+                            }
+                          
+                           
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@code {
+
+
+    int cdn = 1;
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    
+    Models.Role selectRole = null;
+    Models.Role _selectRole
+    {
+        get { return _selectRole; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectRole = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    Models.Branch selectBranch = null;
+    Models.Branch _selectBranch
+    {
+        get { return _selectBranch; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectBranch = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+    Models.Login selectLogin = null;
+    Models.Login _selectLogin
+    {
+        get { return _selectLogin; }
+        set
+        {
+            if (value != null)
+            {
+
+                _selectLogin = value;
+
+            }
+            else
+            {
+
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+@media print {
+    @page {
+        size: 80mm 100mm; /* Set the size of the paper */
+        margin: 3mm; /* Set the margin of the paper */
+    }
+
+    .receipt[b-y8p6v4poki] {
+        padding: 3mm; /* Set padding for the receipt */
+        width: 80mm; /* Set width for the receipt */
+    }
+}

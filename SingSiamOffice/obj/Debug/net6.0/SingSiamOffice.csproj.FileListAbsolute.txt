@@ -1,0 +1,218 @@
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\appsettings.Development.json
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\appsettings.json
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.staticwebassets.runtime.json
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.exe
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.deps.json
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.runtimeconfig.json
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.pdb
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Azure.Core.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Azure.Identity.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Blazored.LocalStorage.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Humanizer.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Localization.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Localization.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.JSInterop.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Mono.TextTemplating.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\MudBlazor.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.CodeDom.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Drawing.Common.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.IO.Pipelines.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Memory.Data.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Runtime.Caching.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Security.Permissions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Text.Json.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Windows.Extensions.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+E:\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.csproj.AssemblyReference.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.GeneratedMSBuildEditorConfig.editorconfig
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.AssemblyInfoInputs.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.AssemblyInfo.cs
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.csproj.CoreCompileInputs.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.MvcApplicationPartsAssemblyInfo.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.RazorAssemblyInfo.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.RazorAssemblyInfo.cs
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.sourcelink.json
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.build.json
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.development.json
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.SingSiamOffice.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.build.SingSiamOffice.props
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SingSiamOffice.props
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SingSiamOffice.props
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.pack.json
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\BlackList\AddBlackList.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\BranchManagement\BranchManagementList.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\CustomerManagement\CustomerInfo\CustomerList.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\CustomerManagement\Payment\PaymentRecipe.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\Home\Login.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\Footer.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\Header.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\bundle\SingSiamOffice.styles.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\projectbundle\SingSiamOffice.bundle.scp.css
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiam.98925EF9.Up2Date
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.dll
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\refint\SingSiamOffice.dll
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.pdb
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.genruntimeconfig.cache
+E:\Singsasiam\SingSiamOffice\obj\Debug\net6.0\ref\SingSiamOffice.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\appsettings.Development.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\appsettings.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.staticwebassets.runtime.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.exe
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.deps.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.runtimeconfig.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\SingSiamOffice.pdb
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Azure.Core.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Azure.Identity.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Blazored.LocalStorage.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Humanizer.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Localization.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.JSInterop.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Mono.TextTemplating.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\MudBlazor.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.CodeDom.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.IO.Pipelines.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Memory.Data.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Runtime.Caching.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Security.Permissions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Text.Encodings.Web.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Text.Json.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\System.Windows.Extensions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.csproj.AssemblyReference.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.GeneratedMSBuildEditorConfig.editorconfig
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.AssemblyInfoInputs.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.AssemblyInfo.cs
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.csproj.CoreCompileInputs.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.MvcApplicationPartsAssemblyInfo.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.RazorAssemblyInfo.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.RazorAssemblyInfo.cs
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.sourcelink.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.build.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.development.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.SingSiamOffice.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.build.SingSiamOffice.props
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SingSiamOffice.props
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SingSiamOffice.props
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\BlackList\AddBlackList.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\BranchManagement\BranchManagementList.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\CustomerManagement\CustomerInfo\CustomerList.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\CustomerManagement\Payment\PaymentRecipe.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Pages\Home\Login.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\Footer.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\Header.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\bundle\SingSiamOffice.styles.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\scopedcss\projectbundle\SingSiamOffice.bundle.scp.css
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiam.98925EF9.Up2Date
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\refint\SingSiamOffice.dll
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.pdb
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\SingSiamOffice.genruntimeconfig.cache
+D:\Other Project\SingSiam\Singsasiam\Singsasiam\SingSiamOffice\obj\Debug\net6.0\ref\SingSiamOffice.dll

@@ -1,0 +1,81 @@
+﻿@using System.Globalization
+@using System.Reflection
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject AuthenticationStateProvider authStateProvider
+@using MudBlazor
+@using SingSiamOffice.Authentication
+@using System.Security.Claims
+@using SingSiamOffice.Models
+@inject NavigationManager NavManager
+
+<!-- Sidebar Start -->
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <NavLink href="/dashboard-admin" class="navbar-brand mx-4 mb-3">
+            <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:15rem;">
+        </NavLink>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="ms-3">
+                <span class="d-none d-lg-inline-flex" style="color: #840012;">Admin</span>
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <NavLink href="/dashboard-admin" class="nav-item nav-link active"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+            <NavLink href="/branchManagement-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/branches.svg" alt="" style="width:3rem;"> จัดการสาขา</NavLink>
+            <NavLink href="/employee-list" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> จัดการพนักงาน</NavLink>
+            <div class="nav-item dropdown">
+                <NavLink href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img class="rounded-circle" src="img/icons/report.svg" alt="" style="width:3rem;"> รายงาน</NavLink>
+                <div class="dropdown-menu bg-transparent border-0">
+                    <NavLink href="/contract-report" class="dropdown-item">สัญญา</NavLink>
+                    <NavLink href="/expense-report" class="dropdown-item">รายรับ - รายจ่ายสาขา</NavLink>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+</div>
+
+<!-- Sidebar End -->
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Inject]
+    Manage.EventLog eventLog { get; set; }
+
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    AuthenticationState auth;
+    SingsiamdbContext db = new SingsiamdbContext();
+    string username;
+    [Inject]
+    Manage.UserManagement management { get; set; }
+    string rolename { get; set; }
+    string roleid;
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authenticationState.User;
+        //auth = await authenticationStateTask;
+        if (user.Identity.IsAuthenticated)
+        {
+            var roleClaim = user.FindFirst(ClaimTypes.Role);
+            if (roleClaim != null)
+            {
+
+                rolename = roleClaim.Value;
+            }
+            else
+            {
+                // Handle case where user doesn't have a role claim
+                rolename = "Unknown";
+            }
+
+        }
+    }
+}

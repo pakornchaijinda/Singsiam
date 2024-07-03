@@ -1,0 +1,373 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\SingSiamOffice.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SingSiamOffice.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Driver\\DLTNatID.0.8.msi",
+      "PackagePath": "staticwebassets\\Driver\\DLTNatID.0.8.msi"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000001\\1509901098568_CMI02#0000001.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000001\\1509901098568_CMI02#0000001.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000002\\1509901098568_CMI02#0000002.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000002\\1509901098568_CMI02#0000002.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000003\\1509901098568_CMI02#0000003.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000003\\1509901098568_CMI02#0000003.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000004\\1509901098568_CMI02#0000004.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000004\\1509901098568_CMI02#0000004.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000005\\1509900705894_CMI02#0000005.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000005\\1509900705894_CMI02#0000005.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000005\\1509901098568_CMI02#0000005.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000005\\1509901098568_CMI02#0000005.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000006\\CMI02#0000006_1509900705894.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000006\\CMI02#0000006_1509900705894.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000006\\CMI02#0000006_1509901098568.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000006\\CMI02#0000006_1509901098568.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000007\\CMI02#0000007_1509901098568.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000007\\CMI02#0000007_1509901098568.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\UploadsCollateral\\CMI02#0000011\\CMI02#0000011_1509901098568.jpg",
+      "PackagePath": "staticwebassets\\UploadsCollateral\\CMI02#0000011\\CMI02#0000011_1509901098568.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads\\1\\M100-190367-CD8Fl.png",
+      "PackagePath": "staticwebassets\\Uploads\\1\\M100-190367-CD8Fl.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads\\1\\M100-190367-TDyK4.png",
+      "PackagePath": "staticwebassets\\Uploads\\1\\M100-190367-TDyK4.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads\\1\\M100-190367-WUDzX.png",
+      "PackagePath": "staticwebassets\\Uploads\\1\\M100-190367-WUDzX.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads\\1\\M100-190367-dxkgC.png",
+      "PackagePath": "staticwebassets\\Uploads\\1\\M100-190367-dxkgC.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads\\1\\M100-190367-vO4jb",
+      "PackagePath": "staticwebassets\\Uploads\\1"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\Uploads_Image\\CMI02#0000005\\CMI02#0000005_1509900705894.png",
+      "PackagePath": "staticwebassets\\Uploads_Image\\CMI02#0000005\\CMI02#0000005_1509900705894.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\Employee\\man.svg",
+      "PackagePath": "staticwebassets\\img\\Employee\\man.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\Land\\farm.jpg",
+      "PackagePath": "staticwebassets\\img\\Land\\farm.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\Topbarimage.png",
+      "PackagePath": "staticwebassets\\img\\Topbarimage.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\branch\\building.png",
+      "PackagePath": "staticwebassets\\img\\branch\\building.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\branch\\down-arrow.svg",
+      "PackagePath": "staticwebassets\\img\\branch\\down-arrow.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\branch\\swap.png",
+      "PackagePath": "staticwebassets\\img\\branch\\swap.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\branch\\swap.svg",
+      "PackagePath": "staticwebassets\\img\\branch\\swap.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\customers\\Profile.png",
+      "PackagePath": "staticwebassets\\img\\customers\\Profile.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\customers\\idcard.jpg",
+      "PackagePath": "staticwebassets\\img\\customers\\idcard.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\SingCircle.png",
+      "PackagePath": "staticwebassets\\img\\icons\\SingCircle.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\add.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\add.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\backlist.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\backlist.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\branches.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\branches.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\branchmoney.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\branchmoney.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\calendar.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\calendar.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\cash.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\cash.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\contract.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\contract.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\contractview.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\contractview.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\customer-service.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\customer-service.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\customer.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\customer.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\dashboard.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\dashboard.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\delete.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\delete.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\depts.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\depts.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\edit.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\edit.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\employee.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\employee.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\expense.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\expense.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\icon.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\icon.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\lone.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\lone.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\payment.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\payment.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\report.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\report.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\research.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\research.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\totalmoney.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\totalmoney.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\worker.svg",
+      "PackagePath": "staticwebassets\\img\\icons\\worker.svg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\icons\\workplace.png",
+      "PackagePath": "staticwebassets\\img\\icons\\workplace.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\testimonial-1.jpg",
+      "PackagePath": "staticwebassets\\img\\testimonial-1.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\testimonial-2.jpg",
+      "PackagePath": "staticwebassets\\img\\testimonial-2.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\user.jpg",
+      "PackagePath": "staticwebassets\\img\\user.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\img\\vehicle\\ducati.jpg",
+      "PackagePath": "staticwebassets\\img\\vehicle\\ducati.jpg"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\GeneratePassword.js",
+      "PackagePath": "staticwebassets\\js\\GeneratePassword.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\NatID.js",
+      "PackagePath": "staticwebassets\\js\\NatID.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\alerts.js",
+      "PackagePath": "staticwebassets\\js\\alerts.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\charts.js",
+      "PackagePath": "staticwebassets\\js\\charts.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\js\\remember.js",
+      "PackagePath": "staticwebassets\\js\\remember.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\chart\\chart.min.js",
+      "PackagePath": "staticwebassets\\lib\\chart\\chart.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\easing\\easing.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\easing\\easing.min.js",
+      "PackagePath": "staticwebassets\\lib\\easing\\easing.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.carousel.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.carousel.min.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.default.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.default.min.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.theme.green.min.css",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.theme.green.min.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\assets\\owl.video.play.png",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\assets\\owl.video.play.png"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\owl.carousel.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\owlcarousel\\owl.carousel.min.js",
+      "PackagePath": "staticwebassets\\lib\\owlcarousel\\owl.carousel.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\css\\tempusdominus-bootstrap-4.min.css"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\js\\moment-timezone.min.js",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\moment-timezone.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\moment.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js",
+      "PackagePath": "staticwebassets\\lib\\tempusdominus\\js\\tempusdominus-bootstrap-4.min.js"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\waypoints\\links.php",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\links.php"
+    },
+    {
+      "Id": "D:\\Other Project\\SingSiam\\Singsasiam\\Singsasiam\\SingSiamOffice\\wwwroot\\lib\\waypoints\\waypoints.min.js",
+      "PackagePath": "staticwebassets\\lib\\waypoints\\waypoints.min.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.SingSiamOffice.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.SingSiamOffice.props",
+      "PackagePath": "build\\SingSiamOffice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.SingSiamOffice.props",
+      "PackagePath": "buildMultiTargeting\\SingSiamOffice.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.SingSiamOffice.props",
+      "PackagePath": "buildTransitive\\SingSiamOffice.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

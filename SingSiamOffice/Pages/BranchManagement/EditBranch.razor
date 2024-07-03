@@ -1,0 +1,100 @@
+﻿@page "/edit-branch/{b_id:int}"
+@* <h3>EditBranch</h3> *@
+@using Models
+<Navbar></Navbar>
+<div class="content">
+    <Header />
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/edit.svg" alt="" style="width:3rem;"> แก้ไขข้อมูลสาขา</MudText>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 pb-3">
+                        <MudText Typo="Typo.body1" Style="@headertext">ข้อมูลสาขา</MudText>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudSelect T="string" Label="จังหวัด" @bind-Value="b_edit.Province" Placeholder="กรุณาระบุจังหวัด" Clearable="true" Required="true" RequiredError="กรุณาระบุจังหวัด!" Variant="Variant.Outlined" Margin="Margin.Dense">
+                            @foreach (string? provices in provincelist)
+                            {
+                                <MudSelectItem Value="@provices" />
+                            }
+                        </MudSelect>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="b_edit.BranchName" Label="ชื่อสาขา" Placeholder="กรุณาระบุชื่อสาขา" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="b_edit.BranchCode" Label="รหัสสาขา" Placeholder="กรุณาระบุรหัสสาขา" Variant="Variant.Filled" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="b_edit.NoBlank" Label="เลขบัญชีสาขา" Placeholder="กรุณาระบุเลขบัญชีสาขา" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("000-0-00000-0"))"></MudTextField>
+                    </div>
+                    <div class="col-md-3 pb-3">
+                        <MudTextField @bind-Value="b_edit.BlankType" Label="ธนาคาร" Placeholder="กรุณาระบุธนาคาร" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="b_edit.Phone" Label="เบอร์โทรติดต่อ" Placeholder="กรุณาระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("0000000000"))"></MudTextField>
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudTextField @bind-Value="b_edit.BranchMap" Label="Google Map Link" Placeholder="กรุณาระบุ Google Map Link" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="b_edit.Address" Label="ที่อยู่สาขา" Placeholder="กรุณาระบุที่อยู่สาขา" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="2"></MudTextField>
+                    </div>
+                    <hr />
+                    <div class="col-md-12 pb-3">
+                        <MudText Typo="Typo.h6">สถานะการใช้งาน</MudText>
+                        <MudRadioGroup T="bool" @bind-Value="b_edit.IsActive">
+                            <MudRadio Value="true" Color="Color.Success" UnCheckedColor="Color.Default">เปิดใช้งาน</MudRadio>
+                            <MudRadio Value="false" Color="Color.Error" UnCheckedColor="Color.Default">ปิดการใช้งาน</MudRadio>
+
+
+                        </MudRadioGroup>
+                    </div>
+
+                    <hr />
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudText Typo="Typo.body2" Style="@headertext">กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนก่อนการแก้ไขข้อมูล</MudText>
+                    </div>
+                    <div class="col-md-12 pb-3 text-center">
+                        <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goback()">กลับ</MudButton>
+                        <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Edit" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit()">แก้ไขข้อมูล</MudButton>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+
+    [Parameter]
+    public int b_id { get; set; }
+    SingSiamOffice.Models.SingsiamdbContext db = new SingSiamOffice.Models.SingsiamdbContext();
+    Branch b_edit = new Branch();
+    private string previousPage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        previousPage = navigationManager.Uri;
+        b_edit = db.Branches.Where(s => s.Id == b_id).FirstOrDefault();
+
+    }
+}

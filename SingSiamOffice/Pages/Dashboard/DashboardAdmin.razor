@@ -1,0 +1,159 @@
+﻿@page "/dashboard-admin"
+@* <h3>Dashboard_Admin</h3> *@
+@using System.Globalization
+@using System.Reflection
+
+
+<Navbar></Navbar>
+<!-- Content Start -->
+<div class="content">
+    <Header />
+
+    <div class="container mt-4 mb-4">
+
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</MudText>
+            </div>
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h6"><img src="img/icons/calendar.svg" alt="" style="width:2rem;"> วันที่ @date</MudText>
+              
+                </div>
+            </div>
+
+        </div>
+        <div class="container mt-4 mb-4">
+
+            <div class="row">
+                <div class="col-md-3 pb-3">
+                    <div class="card outer-card">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <img  src="img/icons/worker.svg" alt="" style="width:5rem;">
+                                </div>
+
+                            </div>
+                            <div class="col-8 text-center">
+                                <div class="card-body">
+                                    <MudStack>
+                                        <MudText Typo="Typo.body1" Style="@imporText">สรุปรายได้ทั้งหมด</MudText>
+                                        <MudText Typo="Typo.body1">1,000,000 บาท</MudText>
+                                    </MudStack>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="card outer-card">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <img  src="img/icons/worker.svg" alt="" style="width:5rem;">
+                                </div>
+
+                            </div>
+                            <div class="col-8 text-center">
+                                <div class="card-body">
+                                    <MudStack>
+                                        <MudText Typo="Typo.body1" Style="@imporText">สรุปรายจ่ายทั้งหมด</MudText>
+                                        <MudText Typo="Typo.body1">1,000,000 บาท</MudText>
+                                    </MudStack>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="card outer-card">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <img  src="img/icons/worker.svg" alt="" style="width:5rem;">
+                                </div>
+
+                            </div>
+                            <div class="col-8 text-center">
+                                <div class="card-body">
+                                    <MudStack>
+                                        <MudText Typo="Typo.body1" Style="@imporText">สรุปปล่อยกู้ทั้งหมด</MudText>
+                                        <MudText Typo="Typo.body1">1,000,000 บาท</MudText>
+                                    </MudStack>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 pb-3">
+                    <div class="card outer-card">
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <div class="card-body">
+                                    <img  src="img/icons/worker.svg" alt="" style="width:5rem;">
+                                </div>
+
+                            </div>
+                            <div class="col-8 text-center">
+                                <div class="card-body">
+                                    <MudStack>
+                                        <MudText Typo="Typo.body1" Style="@imporText">สรุปยอดคงค้างทั้งหมด</MudText>
+                                        <MudText Typo="Typo.body1">1,000,000 บาท</MudText>
+                                    </MudStack>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container mt-4 mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <MudAutocomplete T="string" Label="ระบุสาขา" @bind-Value="branchs" SearchFunc="@SearchBranch" Margin="Margin.Dense" Variant="Variant.Outlined" />
+             </div>
+                <div class="col-md-4">
+                        <MudDatePicker @bind-Date="filter_date" Label="วัน/เดือน/ปี" Culture="@GetThaiCulture()" PickerVariant="PickerVariant.Dialog" UseShortNames="false" TitleDateFormat="dddd, dd MMMM" Margin="Margin.Dense" Variant="Variant.Outlined" Style="background-color:#fff;" Required RequiredError="กรุณาระบุวัน/เดือน/ปีเกิด" />
+             </div>
+             <div class="col-md-4">
+                 <MudStack Row="true">
+                     <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Search" Size="Size.Large" Style="@buttoncolor1">ค้นหาข้อมูล</MudButton>
+                     <MudButton Variant="Variant.Filled" Size="Size.Large" Style="@buttoncolor1">ข้อมูลรวมทุกสาขา</MudButton>
+                 </MudStack>
+             </div>
+         </div>
+
+     </div>
+     <div class="container mt-4 mb-4">
+         <div class="card outer-card">
+             <div class="card-body">
+                 <div class="row">
+                     <div class="col-md-12 mt-4 mb-4 text-center">
+                         <MudText Typo="Typo.h6">ภาพรวมรายได้</MudText>
+                     </div>
+                  <div class="col-md-12 mt-4 mb-4">
+                         <canvas id="salse-revenue"></canvas>
+                  </div>
+                 </div>
+             </div>
+         </div>
+
+
+     </div>
+
+
+
+ </div>
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+}

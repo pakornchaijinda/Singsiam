@@ -1,0 +1,216 @@
+﻿@page "/add-employee"
+@* <h3>AddEmployee</h3> *@
+@inject HttpClient Http
+@using Models
+<Navbar></Navbar>
+<!-- Content Start -->
+<div class="content">
+
+    <Header />
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <div class="col-12 mt-4 mb-4">
+                <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/add.svg" alt="" style="width:3rem;"> เพิ่มพนักงานใหม่</MudText>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="card outer-card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12 pb-3">
+                        <MudText Typo="Typo.h6" Style="@headertext">ข้อมูลพนักงาน</MudText>
+                     </div>
+                    <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="New_em.Code" Label="รหัสพนักงาน" Placeholder="กรุณาระบุรหัสพนักงาน" Variant="Variant.Filled" Margin="Margin.Dense" ReadOnly ></MudTextField>
+                    </div>
+                     <div class="col-md-2 pb-3">
+                         <MudSelect T="string" @bind-Value = "front" Label="คำนำหน้าชื่อ" Placeholder="กรุณาระบุคำนำหน้าชื่อ" Clearable="true" Required="true" RequiredError="กรุณาระบุคำนำหน้าชื่อ!" Variant="Variant.Outlined" Margin="Margin.Dense">
+                             @foreach (string? name_title in name_titles)
+                            {
+                                <MudSelectItem Value="@name_title" />
+                            }
+                        </MudSelect>
+                     </div>
+                    <div class="col-md-4 pb-3">
+                        <MudTextField @bind-Value="New_em.Fullname" Label="ชื่อ - นามสกุล" Placeholder="กรุณาระบุชื่อ - นามสกุล" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                     </div>
+                    <div class="col-md-4 pb-3">
+                        <MudTextField @bind-Value="New_em.EmNickname" Label="ชื่อเล่น" Placeholder="กรุณาระบุชื่อเล่น" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-4 pb-3">
+                        <MudTextField @bind-Value="New_em.Position" Label="ตำแหน่ง" Placeholder="กรุณาระบุตำแหน่ง" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    <div class="col-md-12 pb-3">
+                        <MudTextField @bind-Value="New_em.Address" Label="ที่อยู่" Placeholder="กรุณาระบุที่อยู่" Variant="Variant.Outlined" Margin="Margin.Dense" Lines="2"></MudTextField>
+                    </div>
+                    <div class="col-md-4 pb-3">
+                        <MudTextField @bind-Value="New_em.Phone" MaxLength="10" Label="เบอร์โทรติดต่อ" Placeholder="กรุณาระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                    </div>
+                    
+                </div>  
+                <div class="row">
+                    <div class="col-md-12 pb-3 text-center">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 pb-3">
+                                        <div class="input-group">
+                                            <MudFileUpload T="IBrowserFile" FilesChanged="HandleFilesChanged">
+                                                <ButtonTemplate>
+                                                    <MudFab HtmlTag="label"
+                                                            Style="@buttoncolor1"
+                                                            DisableElevation="true"
+                                                            Icon="@Icons.Material.Filled.Image"
+                                                            Label="คลิกเพื่ออัพโหลดรูป"
+                                                            for="@context.Id" />
+
+                                                </ButtonTemplate>
+                                            </MudFileUpload>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 pb-3">
+
+                                        @if (base64data != null)
+                                        {
+                                            <img src="@base64data" style="width:30%;" />
+                                        }
+                                    </div>
+                                </div>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 pb-3">
+                        <MudSelect T="int" Label="หน้าที่" @bind-Value="role_id" Variant="Variant.Outlined" Margin="Margin.Dense">
+                            @foreach (var data in roles)
+                            {
+                                <MudSelectItem T="int" Value="@data.Id">@data.RoleName</MudSelectItem>
+                            }
+                        </MudSelect>
+                      
+                        
+                    </div>
+                    <div class="col-md-6 pb-3">
+                        <MudSelect T="int" Label="สาขา" @bind-Value="bracth_id" Variant="Variant.Outlined" Margin="Margin.Dense">
+                            @foreach (var data in branches)
+                            {
+                                <MudSelectItem T="int" Value="@data.Id">@data.BranchName</MudSelectItem>
+                            }
+                        </MudSelect>
+
+                      
+                      
+                    </div>
+@*                     <div class="col-md-12 pb-3">
+                        <MudStack>
+                            <MudText Typo="Typo.body1">สถานะการใช้งาน</MudText>
+                            <MudRadioGroup @bind-Value="isActive">
+                                <MudRadio Value="true" Color="Color.Success" Dense="true">เปิดการใช้งาน</MudRadio>
+                                <MudRadio Value="false" Color="Color.Error" Dense="false">ปิดการใช้งาน</MudRadio>
+                            </MudRadioGroup>
+                        </MudStack>
+                    </div> *@
+                </div>
+
+                <div class="col-md-12 pb-3">
+                    <div class="card outer-card">
+                        <div class="card-header" style="@tableheader">
+                            <MudText Typo="Typo.body1">รหัสผ่านเข้าใช้งาน</MudText>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 pb-3">
+                                    <MudStack Row="true">
+                                        <MudTextField @bind-Value="New_em.Username" Label="ชื่อผู้เข้าใช้งาน" Placeholder="กรุณาระบุผู้เข้าใช้งาน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                        <MudTextField id="pass" @bind-Value="New_em.Password" Label="รหัสผ่านเข้าใช้งานระบบ" Placeholder="กรุณาระบุรหัสผ่าน" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                        <MudButton id="" @onclick="()=>GenerateRandomPassword()" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Key" Size="Size.Large" Style="@buttoncolor1">สร้างรหัสผ่าน</MudButton>
+                                        <MudButton id="btncp" Variant="Variant.Outlined" StartIcon="@Icons.Material.Filled.ContentCopy" Size="Size.Large" Color="Color.Error" hidden>คัดลอก</MudButton>
+                                    </MudStack>
+                                    <br/>
+                                    <MudText Typo="Typo.body1" Color="Color.Error">* เมื่อกำหนดรหัสผ่านเสร็จสิ้นให้ทำการเก็บไว้เพื่อใช้ในการเข้าสู่ระบบ</MudText>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-4 mb-4 text-center">
+                <MudText Typo="Typo.body1" Color="Color.Error">* กรุณาตรวจสอบข้อมูลให้ถูกต้องและครบถ้วนก่อนการเพิ่มพนักงานใหม่</MudText>
+            </div>
+            <div class="col-md-12 mt-4 mb-4 text-center">
+                <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goBack()">ย้อนกลับ</MudButton>
+                <MudButton Variant="Variant.Filled" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>submit()">เพิ่มพนักงานใหม่</MudButton>
+            </div>
+        </div>
+       
+    </div>
+
+</div>
+
+@code {
+
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    private IBrowserFile imageFile;
+    private string base64Image;
+    private ElementReference fileInput;
+    string front { get; set; }
+    int role_id{ get; set; }
+    int bracth_id { get; set; }
+
+
+
+    public string base64data { get; set; }
+
+    private string imageDataUrl;
+
+    private async Task HandleFilesChanged(IBrowserFile files)
+    {
+
+        if (files != null && files.ContentType.StartsWith("image/"))
+        {
+            imageDataUrl = await ConvertToBase64(files);
+            New_em.Img = imageDataUrl;
+            base64data = imageDataUrl;
+
+            StateHasChanged();
+        }
+    }
+    private async Task<string> ConvertToBase64(IBrowserFile file)
+    {
+        using var memoryStream = new MemoryStream();
+        await file.OpenReadStream().CopyToAsync(memoryStream);
+        var bytes = memoryStream.ToArray();
+        return $"data:{file.ContentType};base64,{Convert.ToBase64String(bytes)}";
+    }
+    private void GenerateRandomPassword()
+    {
+        // Define characters to use for random password generation
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        // Define password length
+        const int passwordLength = 10;
+
+        // Initialize random number generator
+        var random = new Random();
+
+        // Generate random password
+        New_em.Password = new string(Enumerable.Repeat(chars, passwordLength)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+}

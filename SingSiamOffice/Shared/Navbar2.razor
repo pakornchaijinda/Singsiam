@@ -1,0 +1,100 @@
+﻿@using System.Globalization
+@using System.Reflection
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject AuthenticationStateProvider authStateProvider
+@using MudBlazor
+@using SingSiamOffice.Authentication
+@using System.Security.Claims
+@using SingSiamOffice.Models
+@using SingSiamOffice.Manage
+@inject NavigationManager NavManager
+@inject NavigationManager NavigationManager
+
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <NavLink href="@DashboardHref" class="navbar-brand mx-4 mb-3">
+            <img class="rounded-circle" src="img/icons/icon.svg" alt="" style="width:10rem;">
+        </NavLink>
+        <div class="d-flex align-items-center ms-4 mb-4">
+            <div class="ms-3">
+                <span class="d-none d-lg-inline-flex" style="color: #840012;">ตำแหน่ง: @rolename</span>
+
+            </div>
+        </div>
+        <div class="navbar-nav w-100">
+            <NavLink href="@DashboardHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
+            <NavLink href="@CustomerListHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> ข้อมูลลูกค้า</NavLink>
+            <NavLink href="@BlacklistHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> Blacklist</NavLink>
+            <NavLink href="@DeptCollectionHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer-service.svg" alt="" style="width:3rem;"> ติดตาม</NavLink>
+            <NavLink href="@ExpenseListHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/expense.svg" alt="" style="width:3rem;"> รายรับ - รายจ่าย</NavLink>
+        </div>
+    </nav>
+</div>
+
+@code {
+    // style
+    string tableheader = "background-color:#840012; color:#ffff;";
+    string headertext = "color:#840012; font-weight:600;";
+    string buttoncolor1 = "background-color:#840012; color:#FFF; font-weight:600;";
+    string settingbutton = "background-color:#840012; color:#FFF; font-weight:600; ";
+    string buttoncollape = "background-color:#fc928c; color:#840012; font-weight:600;";
+    string imporText = "color:#840012; font-weight:600;";
+    string detailtext = "color:#1C2833 ; font-weight:600; font-style: italic;";
+    [Inject]
+    Manage.EventLog eventLog { get; set; }
+    [CascadingParameter]
+    private Task<AuthenticationState> authenticationStateTask { get; set; }
+    AuthenticationState auth;
+    SingsiamdbContext db = new SingsiamdbContext();
+    string username;
+    [Inject]
+    Manage.UserManagement management { get; set; }
+    [Inject]
+    Manage.BranchService branchService { get; set; }
+    string rolename { get; set; }
+    string roleid;
+
+    [Inject]
+    NavigationManager navigationManager { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authenticationState.User;
+        //auth = await authenticationStateTask;
+        if (user.Identity.IsAuthenticated)
+        {
+            var roleClaim = user.FindFirst(ClaimTypes.Role);
+            if (roleClaim != null)
+            {
+
+                rolename = roleClaim.Value;
+            }
+            else
+            {
+                // Handle case where user doesn't have a role claim
+                rolename = "Unknown";
+            }
+
+        }
+        brach_id = branchService.branch_ID;
+        if (brach_id == 0)
+        {
+            navigationManager.NavigateTo("/");
+        }
+
+    }
+
+
+
+    public int brach_id;
+
+
+
+    // Properties to store dynamic href values
+    string DashboardHref => "/dashboard/" + brach_id.ToString();
+    string CustomerListHref => "/customerlist/" + brach_id.ToString();
+    string BlacklistHref => "/blacklist_list/" + brach_id.ToString();
+    string DeptCollectionHref => "/deptcollection-list/" + brach_id.ToString();
+    string ExpenseListHref => "/expense-list/" + brach_id.ToString();
+}
+
