@@ -620,21 +620,28 @@
                                 <div class="card-body">
                                     <div class="row">
 
-                                        <div class="col-md-4 pb-3">
-                                            <MudTextField @bind-Value="guarantorNameA" Style="@field_box" Label="ชื่อ - นามสกุลผู้ค้ำคนที่ 1" Placeholder="ระบุชื่อ - นามสกุลผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                        <div class="col-4 pb-3">
+                                            <MudAutocomplete T="Customer" Label="กรอกเลขบัตรหรือชื่อที่ต้องการค้นหา" @bind-Value="selectCustomer" Margin="Margin.Dense" ToStringFunc="@(e=> e==null?null : $"{e.NatId} | {e.FullName}")" SearchFunc="@SearchValue" Variant="Variant.Outlined" />
+
                                         </div>
-                                        <div class="col-md-4 pb-3">
-                                            <MudTextField @bind-Value="guarantorANatId" Style="@field_box" Label="หมายเลขบัตรผู้ค้ำคนที่ 1" Placeholder="หมายเลขบัตรผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-                                        </div>
-                                        <div class="col-md-4 pb-3">
-                                            <MudTextField @bind-Value="relationA" Style="@field_box" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-                                        </div>
-                                        <div class="col-md-4 pb-3">
-                                            <MudTextField @bind-Value="phoneA" Style="@field_box" Label="เบอร์โทรติดต่อ" Placeholder="ระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("000-000-0000"))"></MudTextField>
-                                        </div>
-                                        <div class="col-md-4 pb-3">
-                                            <MudTextField @bind-Value="addressA" Style="@field_box" Label="ที่อยู่ผู้ค้ำคนที่ 1" Placeholder="ระบุที่อยู่ผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
-                                        </div>
+                                        @if(selectCustomer != null){
+                                            <div class="col-md-4 pb-3">
+                                                <MudTextField @bind-Value="selectCustomer.FullName" Style="@field_box" Label="ชื่อ - นามสกุลผู้ค้ำคนที่ 1" Placeholder="ระบุชื่อ - นามสกุลผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                            </div>
+                                            <div class="col-md-4 pb-3">
+                                                <MudTextField @bind-Value="selectCustomer.NatId" Style="@field_box" Label="หมายเลขบัตรผู้ค้ำคนที่ 1" Placeholder="หมายเลขบัตรผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                            </div>
+                                            <div class="col-md-4 pb-3">
+                                                <MudTextField @bind-Value="relationA" Style="@field_box" Label="ความสัมพันธ์" Placeholder="ระบุความสัมพันธ์" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                            </div>
+                                            <div class="col-md-4 pb-3">
+                                                <MudTextField @bind-Value="selectCustomer.Phone" Style="@field_box" Label="เบอร์โทรติดต่อ" Placeholder="ระบุเบอร์โทรติดต่อ" Variant="Variant.Outlined" Margin="Margin.Dense" Mask="@(new PatternMask("000-000-0000"))"></MudTextField>
+                                            </div>
+                                            <div class="col-md-4 pb-3">
+                                                <MudTextField @bind-Value="selectCustomer.Address" Style="@field_box" Label="ที่อยู่ผู้ค้ำคนที่ 1" Placeholder="ระบุที่อยู่ผู้ค้ำคนที่ 1" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+                                            </div>
+                                        }
+                                      
                                     </div>
                                     <hr/>
                                     @if(addGuarantor == true)

@@ -14,7 +14,7 @@
                 <MudText Typo="Typo.h5" Style="@headertext"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:2rem;"> ข้อมูลลูกค้าประจำสาขา : @b_info.BranchName | @b_info.BranchCode</MudText>
             </div>
             <div class="col-md-6 text-end">
-                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>addCustomer(b_id)">เพิ่มลูกค้า</MudButton>
+                @* <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Size="Size.Large" Style="@buttoncolor1" @onclick="()=>addCustomer(b_id)">เพิ่มลูกค้า</MudButton> *@
              @*    <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goDeptConlection(b_id)">ติดตาม</MudButton>
                 <MudButton Variant="Variant.Outlined" Size="Size.Large" Color="Color.Error" @onclick="()=>goBlacklist(b_id)">Blacklist</MudButton> *@
             </div>
@@ -56,7 +56,7 @@
                     <h3>ยังไม่มีลูกค้าในสาขา</h3>
                 </div>
             }
-            @foreach (var data in list_customer)
+            @foreach (var data in list_customer_show)
             {
                   <div class="col-12">
                     <div class="mx-auto">
@@ -150,7 +150,7 @@
                                             </MudButton>
 
                                             <MudDivider />
-                                            <MudCollapse Expanded="_expandedStates[data.CustomerId]">
+                                            <MudCollapse Expanded="true">
                                                 <div class="table-responsive">
                                                     <table class="table">
                                                         <thead>
@@ -243,6 +243,7 @@
 
     Branch b_info = new Branch();
     List<Customer> list_customer = new List<Customer>();
+    List<Customer> list_customer_show = new List<Customer>();
     protected override async Task OnInitializedAsync()
     {
 
@@ -251,7 +252,7 @@
         list_customer = db.Customers.Where(s => s.BranchId == b_id).ToList();
         foreach (var data in list_customer)
         {
-            _expandedStates[data.CustomerId] = false; // You can set initial state as desired
+            _expandedStates[data.CustomerId] = true; // You can set initial state as desired
 
         }
     }
@@ -263,7 +264,7 @@
     private async void OnExpandCollapseClick(int cus_id)
     {
         _expandedStates[cus_id] = !_expandedStates[cus_id];
-         lst_Promises =await managements.GetPromisebyCustomerId(cus_id);
+        lst_Promises =await managements.GetPromisebyCustomerId(cus_id);
         // Toggle the state of the clicked section
     }
     Models.Customer selectCustomer = null;
@@ -284,21 +285,24 @@
             }
         }
     }
-    private void fillter()
+   async private void fillter()
     {
         if (selectCustomer!=null)
         {
-            list_customer = list_customer.Where(s => s.CustomerId == selectCustomer.CustomerId).ToList();
-
+            list_customer_show.Clear();
+            list_customer_show = list_customer.Where(s => s.CustomerId == selectCustomer.CustomerId).ToList();
+           
+            lst_Promises = await managements.GetPromisebyCustomerId(selectCustomer.CustomerId);
             StateHasChanged();
         }
-       
+
     }
     private void reset()
     {
         selectCustomer = null;
         b_info = db.Branches.Where(s => s.IsActive == true).FirstOrDefault();
         list_customer = db.Customers.Where(s => s.BranchId == b_id).ToList();
+        list_customer_show.Clear();
         foreach (var data in list_customer)
         {
             _expandedStates[data.CustomerId] = false; // You can set initial state as desired

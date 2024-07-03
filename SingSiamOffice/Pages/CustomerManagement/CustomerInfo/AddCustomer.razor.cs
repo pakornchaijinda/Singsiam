@@ -232,7 +232,7 @@ namespace SingSiamOffice.Pages.CustomerManagement.CustomerInfo
     
 
         private void goBack() {
-            navigationManager.NavigateTo("/customerlist/"+ b_id.ToString());
+            navigationManager.NavigateTo("/customerlist/" + b_id.ToString());
         }
 
         public class JsToDotNetBridge 

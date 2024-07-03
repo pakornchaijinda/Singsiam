@@ -3481,23 +3481,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Users\\pakpo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Other Project\\SinghaSiam\\SingSiamOffice\\SingSiamOffice.csproj",
+      "projectUniqueName": "C:\\Users\\pakpo\\Source\\Repos\\Singsiam2\\SingSiamOffice\\SingSiamOffice.csproj",
       "projectName": "SingSiamOffice",
-      "projectPath": "D:\\Other Project\\SinghaSiam\\SingSiamOffice\\SingSiamOffice.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\Other Project\\SinghaSiam\\SingSiamOffice\\obj\\",
+      "projectPath": "C:\\Users\\pakpo\\Source\\Repos\\Singsiam2\\SingSiamOffice\\SingSiamOffice.csproj",
+      "packagesPath": "C:\\Users\\pakpo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pakpo\\Source\\Repos\\Singsiam2\\SingSiamOffice\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pakpo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3574,24 +3574,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.30, 6.0.30]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.30, 6.0.30]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.30, 6.0.30]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.30, 6.0.30]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"

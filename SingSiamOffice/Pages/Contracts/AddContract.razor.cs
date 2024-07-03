@@ -449,7 +449,7 @@ namespace SingSiamOffice.Pages.Contracts
         private Promise PromiseInfo = new Promise();
         private Customer _customer { get; set; }
         private Branch branch = new Branch();
-   
+        List<Customer> list_customer = new List<Customer>();
 
         Collateral1 collateral1 = new Collateral1();
         Collateral2 collateral2 = new Collateral2();
@@ -489,6 +489,8 @@ namespace SingSiamOffice.Pages.Contracts
         }
         protected override async void OnInitialized()
         {
+            list_customer = await Managements.GetCustomerbyBranch(branch_id);
+            list_customer = list_customer.Where(s => s.CustomerId != c_id).ToList();
             List_Provinces = await Managements.GetProvince();
             List_Collaterals = await Managements.GetCollaterals();
             _customer = await Managements.GetCustomerInfo(c_id);
@@ -740,7 +742,41 @@ namespace SingSiamOffice.Pages.Contracts
         }
         private void goBack()
         {
-            navigationManager.NavigateTo("/customerlist");
+            navigationManager.NavigateTo("/customerlist/" + branch_id.ToString());
+        }
+
+        Models.Customer selectCustomer = null;
+        Models.Customer _selectCustomer
+        {
+            get { return _selectCustomer; }
+            set
+            {
+                if (value != null)
+                {
+                    _selectCustomer = value;
+
+                    guarantorNameA = _selectCustomer.FullName;
+                    guarantorANatId = _selectCustomer.NatId;
+                    phoneA = _selectCustomer.Phone;
+                    addressA = _selectCustomer.Address;
+                    StateHasChanged();
+                }
+                else
+                {
+
+                }
+            }
+            
+        }
+        private async Task<IEnumerable<Customer>> SearchValue(string value)
+        {
+            // In real life use an asynchronous function for fetching data from an api.
+            await Task.Delay(5);
+
+            // if text is null or empty, show complete list
+            if (string.IsNullOrEmpty(value))
+                return list_customer;
+            return list_customer.Where(x => x.NatId.Contains(value, StringComparison.InvariantCultureIgnoreCase) || x.FullName.Contains(value, StringComparison.InvariantCultureIgnoreCase));
         }
         #endregion
     }

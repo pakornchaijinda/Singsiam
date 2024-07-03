@@ -125,7 +125,7 @@ namespace SingSiamOffice.Pages.CustomerManagement.CustomerInfo
         }
         private void goCustomerDept(int cus_id)
         {
-            navigationManager.NavigateTo("/customerdept");
+            navigationManager.NavigateTo("/customerdept/");
         }
         private void goPayment(int cus_id, int promise_id, int branch_id)
         {

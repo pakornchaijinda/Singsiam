@@ -23,7 +23,8 @@
         </div>
         <div class="navbar-nav w-100">
             <NavLink href="@DashboardHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/dashboard.svg" alt="" style="width:3rem;"> Dashboard</NavLink>
-            <NavLink href="@CustomerListHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> ข้อมูลลูกค้า</NavLink>
+            <NavLink href="@AddCustomer" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> เพิ่มข้อมูลลูกค้า</NavLink>
+            <NavLink href="@CustomerListHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer.svg" alt="" style="width:3rem;"> สัญญา</NavLink>
             <NavLink href="@BlacklistHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/backlist.svg" alt="" style="width:3rem;"> Blacklist</NavLink>
             <NavLink href="@DeptCollectionHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/customer-service.svg" alt="" style="width:3rem;"> ติดตาม</NavLink>
             <NavLink href="@ExpenseListHref" class="nav-item nav-link"><img class="rounded-circle" src="img/icons/expense.svg" alt="" style="width:3rem;"> รายรับ - รายจ่าย</NavLink>
@@ -92,6 +93,7 @@
 
     // Properties to store dynamic href values
     string DashboardHref => "/dashboard/" + brach_id.ToString();
+    string AddCustomer => "/add-customer/" + brach_id.ToString();
     string CustomerListHref => "/customerlist/" + brach_id.ToString();
     string BlacklistHref => "/blacklist_list/" + brach_id.ToString();
     string DeptCollectionHref => "/deptcollection-list/" + brach_id.ToString();
