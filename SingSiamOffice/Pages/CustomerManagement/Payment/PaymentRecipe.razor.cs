@@ -23,7 +23,7 @@ namespace SingSiamOffice.Pages.CustomerManagement.Payment
         private List<Receiptdesc> lst_receiptdescs = new List<Receiptdesc>();
         private Receipttran receipttran = new Receipttran();
         Manage.Receipt receipt = new Receipt();
-
+        private bool ck_deposit { get; set; }
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
@@ -48,6 +48,9 @@ namespace SingSiamOffice.Pages.CustomerManagement.Payment
             receipt.total_fee = receipttran.Charge1amt.ToString();
             receipt.receive_by = globalData.fullname;
             receipt.deposit = receipttran.Deposit.ToString();
+            if (receipttran.Deposit != 0)
+            { ck_deposit = true; }
+            else { ck_deposit = false; }
             if (receipttran.Charge1amt > 0)
             {
                 receipt.ck_total_fee = true;

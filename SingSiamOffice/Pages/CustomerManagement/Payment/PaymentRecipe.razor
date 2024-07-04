@@ -396,9 +396,18 @@
                 = @receipt.amount_text =
             </div>
             <hr class="line"/>
-            <div class="headerSubTitle" style="font-weight:bold; text-align:start;">
-                งวดคงเหลิอ: @receipt.peroid_remain งวด  
-            </div>
+            @if (ck_deposit == true)
+            {
+
+            }
+            else
+            {
+                <div class="headerSubTitle" style="font-weight:bold; text-align:start;">
+                    งวดคงเหลิอ: @receipt.peroid_remain งวด
+                </div>
+            }
+         
+
             <br/>
             <div class="headerSubTitle" style="font-weight:bold; text-align:center;">
                 ลงชื่อ....................................................ผู้รับเงิน
