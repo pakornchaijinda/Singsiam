@@ -19,5 +19,9 @@ public partial class Guarantor
 
     public string? Address { get; set; }
 
+    public int? CustomerId { get; set; }
+
+    public virtual Customer? Customer { get; set; }
+
     public virtual Promise Promise { get; set; } = null!;
 }

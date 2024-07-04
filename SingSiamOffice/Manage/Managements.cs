@@ -37,7 +37,12 @@ namespace SingSiamOffice.Manage
                 //  periodtran.amount_remain = (decimal)periodtran.Amount - (decimal)periodtran.Paidamount;
                 periodtran.tdate_pay = DateTime.ParseExact(periodtran.Tdateformat, "yyyyMMdd", null);
                 periodtran.currentdate = DateTime.ParseExact(DateTime.Now.ToString("yyyyMMdd"), "yyyyMMdd", null);
-
+                if (periodtran.Deposit != 0)
+                { periodtran.ck_deposit = true; }
+                else 
+                {
+                    periodtran.ck_deposit= false;   
+                }
                 if (periodtran.Ispaid == true)
                 {
                     periodtran.style_color = "color: blue;";

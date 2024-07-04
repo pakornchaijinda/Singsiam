@@ -48,9 +48,14 @@ namespace SingSiamOffice.Pages.CustomerManagement.Payment
             receipt.total_fee = receipttran.Charge1amt.ToString();
             receipt.receive_by = globalData.fullname;
             receipt.deposit = receipttran.Deposit.ToString();
-            if (receipttran.Deposit != 0)
-            { ck_deposit = true; }
-            else { ck_deposit = false; }
+            if (receipttran.Receiptdesc == "รับฝากเงินล่วงหน้า")
+            {
+                ck_deposit = true; 
+            }
+            else 
+            {
+                ck_deposit = false;
+            }
             if (receipttran.Charge1amt > 0)
             {
                 receipt.ck_total_fee = true;

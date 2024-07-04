@@ -121,7 +121,7 @@ namespace SingSiamOffice.Manage
                         }
                         else 
                         {
-                            to_edit.Deposit = items.Deposit;
+                            to_edit.Deposit = to_edit.Deposit + items.Deposit;
                         }
                      
                      

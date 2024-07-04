@@ -283,6 +283,7 @@ public partial class SingsiamdbContext : DbContext
                 .HasMaxLength(500)
                 .IsFixedLength()
                 .HasColumnName("address");
+            entity.Property(e => e.CustomerId).HasColumnName("customer_id");
             entity.Property(e => e.GuarantorName)
                 .HasMaxLength(50)
                 .HasColumnName("guarantorName");
@@ -300,9 +301,12 @@ public partial class SingsiamdbContext : DbContext
                 .HasColumnName("phone");
             entity.Property(e => e.PromiseId).HasColumnName("promise_id");
 
+            entity.HasOne(d => d.Customer).WithMany(p => p.Guarantors)
+                .HasForeignKey(d => d.CustomerId)
+                .HasConstraintName("FK_guarantor_customer");
+
             entity.HasOne(d => d.Promise).WithMany(p => p.Guarantors)
                 .HasForeignKey(d => d.PromiseId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_guarantor_promise");
         });
 
@@ -414,7 +418,9 @@ public partial class SingsiamdbContext : DbContext
                 .HasDefaultValueSql("((0))")
                 .HasColumnType("decimal(10, 0)")
                 .HasColumnName("intpaid");
-            entity.Property(e => e.Ispaid).HasColumnName("ispaid");
+            entity.Property(e => e.Ispaid)
+                .HasDefaultValueSql("((0))")
+                .HasColumnName("ispaid");
             entity.Property(e => e.Loanminus)
                 .HasDefaultValueSql("((0))")
                 .HasColumnType("decimal(10, 0)")

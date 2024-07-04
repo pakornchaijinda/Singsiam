@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SingSiamOffice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e1d983e4a860314804ae05e1831e4b78749ea668")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+458dad0c5a35a20096189806a0354df69f4a4aea")]
 [assembly: System.Reflection.AssemblyProductAttribute("SingSiamOffice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SingSiamOffice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

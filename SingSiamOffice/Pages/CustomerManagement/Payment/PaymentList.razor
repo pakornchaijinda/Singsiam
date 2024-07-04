@@ -229,23 +229,51 @@
                                                  
                                                    
                                                    
-                                                        <MudButton Variant="Variant.Outlined" Color="Color.Success" @onclick="()=>receipt(items.Id)" Disabled>Print</MudButton>
+                                  @*                       <MudButton Variant="Variant.Outlined" Color="Color.Success" @onclick="()=>receipt(items.Id)" Disabled>Print</MudButton>
                                                         <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Disabled>หลักฐานการโอน</MudButton>
-                                                    
+                                                     *@
 
                                                 </td>
                                             }
                                         </tr>
                                         @if (ExpandedPeriodtransId == items.Id)
                                         {
-                                            <tr>
-                                                <td style="@items.style_color"></td>
-                                                <td style="@items.style_color">@items.Receiptdescs.Where(s=>s.PeriodtranId == items.Id).FirstOrDefault().Tdate</td>
-                                                <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Cappaid</td>
-                                                <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Intpaid</td>
-                                                <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Amount</td>
-                                              
-                                            </tr>
+                                            @if (items.ck_deposit == true)
+                                            {
+                                                foreach (var i in items.Receiptdescs)
+                                                {
+                                                    <tr>
+                                                        <td style="@items.style_color"></td>
+                                                        <td style="@items.style_color">@i.Tdate</td>
+                                                        <td style="@items.style_color">@i.Cappaid</td>
+                                                        <td style="@items.style_color">@i.Intpaid</td>
+                                                        <td style="@items.style_color">@i.Cappaid</td>
+                                                        <td style="@items.style_color">@i.Deposit</td>
+                                                           <td style="@items.style_color"></td>
+                                                        <td style="@items.style_color"></td>
+                                                        <td>
+                                                            <MudButton Variant="Variant.Outlined" Color="Color.Success" @onclick="()=>receipt(items.Id)" Disabled>Print</MudButton>
+                                                            <MudButton Variant="Variant.Outlined" Color="Color.Secondary" Disabled>หลักฐานการโอน</MudButton>
+                                                        </td>
+                                                    </tr>
+                                                
+                                                }
+                                            
+
+                                            }
+                                            else
+                                            {
+                                                <tr>
+                                                    <td style="@items.style_color"></td>
+                                                    <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Tdate</td>
+                                                    <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Cappaid</td>
+                                                    <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Intpaid</td>
+
+                                                    <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Amount</td>
+                                                    <td style="@items.style_color">@items.Receiptdescs.Where(s => s.PeriodtranId == items.Id).FirstOrDefault().Amount</td>
+                                                </tr>
+                                            }
+                                 
                                         }
 
 

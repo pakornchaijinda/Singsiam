@@ -68,6 +68,9 @@ namespace SingSiamOffice.Models
         //รวมงวดที่ต้องชำระที่เหลือทั้งหมด
         [NotMapped]
         public int total_periods_remain { get; set; }
+        //รับฝากเงิน
+        [NotMapped]
+        public bool ck_deposit { get; set;}
     }
     public partial class Receipttran 
     {

@@ -697,11 +697,12 @@ namespace SingSiamOffice.Pages.Contracts
                 if(guarantor == 1) 
                 {
                     Models.Guarantor g = new Guarantor();
-                    g.GuarantorName = guarantorNameA;
-                    g.GuarantorNatId = guarantorANatId;
+                    g.GuarantorName = selectCustomer.FullName;
+                    g.GuarantorNatId = selectCustomer.NatId;
                     g.GuarantorRelation = relationA == null ? "-" : relationA;
-                    g.Phone = phoneA == null ? "-" : phoneA; ;
-                    g.Address = addressA == null ? "-" : addressA;
+                    g.Phone = selectCustomer.Phone == null ? "-" : selectCustomer.Phone; 
+                    g.Address = selectCustomer.Address == null ? "-" : selectCustomer.Address;
+                    g.CustomerId = selectCustomer.CustomerId;
                     g.PromiseId = b.Id;
                     List_Guarantors.Add(g);
 
