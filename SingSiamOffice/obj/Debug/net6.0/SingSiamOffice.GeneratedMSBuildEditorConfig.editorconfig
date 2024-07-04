@@ -9,195 +9,195 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SingSiamOffice
 build_property.RootNamespace = SingSiamOffice
-build_property.ProjectDir = D:\freelance\Singsiam\SingSiamOffice\
+build_property.ProjectDir = D:\Other Project\Singsiam\SingSiamOffice\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\freelance\Singsiam\SingSiamOffice
+build_property.MSBuildProjectDirectory = D:\Other Project\Singsiam\SingSiamOffice
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/freelance/Singsiam/SingSiamOffice/App.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BlackList/Blacklist_List.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BlackList/Blacklist_List.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxhY2tMaXN0XEJsYWNrbGlzdF9MaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BlackList/EditBlackList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BlackList/EditBlackList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxhY2tMaXN0XEVkaXRCbGFja0xpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BranchManagement/AddBranch.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BranchManagement/AddBranch.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmNoTWFuYWdlbWVudFxBZGRCcmFuY2gucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BranchManagement/Branch_Info.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BranchManagement/Branch_Info.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmNoTWFuYWdlbWVudFxCcmFuY2hfSW5mby5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BranchManagement/EditBranch.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BranchManagement/EditBranch.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmNoTWFuYWdlbWVudFxFZGl0QnJhbmNoLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Contracts/AddContract.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Contracts/AddContract.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udHJhY3RzXEFkZENvbnRyYWN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Contracts/ViewContract.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Contracts/ViewContract.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udHJhY3RzXFZpZXdDb250cmFjdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Counter.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerDept/Customerdept.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerDept/Customerdept.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XEN1c3RvbWVyRGVwdFxDdXN0b21lcmRlcHQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/AddCustomer.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/AddCustomer.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XEN1c3RvbWVySW5mb1xBZGRDdXN0b21lci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/EditCustomer.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/EditCustomer.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XEN1c3RvbWVySW5mb1xFZGl0Q3VzdG9tZXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XFBheW1lbnRcUGF5bWVudExpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentSystem.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentSystem.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XFBheW1lbnRcUGF5bWVudFN5c3RlbS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Dashboard/Dashboard.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Dashboard/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXERhc2hib2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Dashboard/DashboardAdmin.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Dashboard/DashboardAdmin.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXERhc2hib2FyZEFkbWluLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/DeptCollection/DeptCollectionList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/DeptCollection/DeptCollectionList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVwdENvbGxlY3Rpb25cRGVwdENvbGxlY3Rpb25MaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/EmployeeManagement/AddEmployee.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/EmployeeManagement/AddEmployee.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVNYW5hZ2VtZW50XEFkZEVtcGxveWVlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/EmployeeManagement/EditEmployee.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/EmployeeManagement/EditEmployee.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVNYW5hZ2VtZW50XEVkaXRFbXBsb3llZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/EmployeeManagement/EmployeeManagementList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/EmployeeManagement/EmployeeManagementList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVNYW5hZ2VtZW50XEVtcGxveWVlTWFuYWdlbWVudExpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/EmployeeManagement/ViewEmployee.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/EmployeeManagement/ViewEmployee.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wbG95ZWVNYW5hZ2VtZW50XFZpZXdFbXBsb3llZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Expense/AddExpense.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Expense/AddExpense.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZW5zZVxBZGRFeHBlbnNlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Expense/EditExpense.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Expense/EditExpense.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZW5zZVxFZGl0RXhwZW5zZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Expense/ExpenseList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Expense/ExpenseList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXhwZW5zZVxFeHBlbnNlTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/FetchData.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Index.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Report/ContractReport.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Report/ContractReport.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0XENvbnRyYWN0UmVwb3J0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Report/ExpenseReport.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Report/ExpenseReport.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVwb3J0XEV4cGVuc2VSZXBvcnQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/BlankLayout.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/BlankLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEJsYW5rTGF5b3V0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/DialogDeposit.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/DialogDeposit.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERpYWxvZ0RlcG9zaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/Navbar.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/Navbar.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdmJhci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/Navbar2.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/Navbar2.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdmJhcjIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/SurveyPrompt.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/_Imports.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BlackList/AddBlackList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BlackList/AddBlackList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmxhY2tMaXN0XEFkZEJsYWNrTGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-0e3mimqyxu
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/BranchManagement/BranchManagementList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/BranchManagement/BranchManagementList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQnJhbmNoTWFuYWdlbWVudFxCcmFuY2hNYW5hZ2VtZW50TGlzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-r70y4sc9r0
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/CustomerList.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/CustomerInfo/CustomerList.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XEN1c3RvbWVySW5mb1xDdXN0b21lckxpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-pzcidia7mg
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentRecipe.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/CustomerManagement/Payment/PaymentRecipe.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tZXJNYW5hZ2VtZW50XFBheW1lbnRcUGF5bWVudFJlY2lwZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-y8p6v4poki
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Home/Login.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Home/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxMb2dpbi5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-wvmpihx1ju
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/Footer.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/Footer.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEZvb3Rlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-r2cu4bvv16
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/Header.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/Header.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXEhlYWRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5mhxnphwe5
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/MainLayout.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-jhpdraxj5c
 
-[D:/freelance/Singsiam/SingSiamOffice/Shared/NavMenu.razor]
+[D:/Other Project/Singsiam/SingSiamOffice/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ysnqqa1rpq
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/Error.cshtml]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/_Host.cshtml]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/freelance/Singsiam/SingSiamOffice/Pages/_Layout.cshtml]
+[D:/Other Project/Singsiam/SingSiamOffice/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
