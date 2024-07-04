@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.JSInterop;
 using MudBlazor;
 using SingSiamOffice.Helpers;
@@ -454,7 +455,7 @@ namespace SingSiamOffice.Pages.Contracts
         Collateral1 collateral1 = new Collateral1();
         Collateral2 collateral2 = new Collateral2();
         Collateral3 collateral3 = new Collateral3();
-
+        Models.SingsiamdbContext db = new Models.SingsiamdbContext();
      
         private async Task<IEnumerable<Province>> SearchProvince(string value)
         {
@@ -756,10 +757,21 @@ namespace SingSiamOffice.Pages.Contracts
                 {
                     _selectCustomer = value;
 
-                    guarantorNameA = _selectCustomer.FullName;
-                    guarantorANatId = _selectCustomer.NatId;
-                    phoneA = _selectCustomer.Phone;
-                    addressA = _selectCustomer.Address;
+                    //check Promise active
+                    var check = db.Guarantors.Include(s => s.Promise).Where(s => s.CustomerId == selectCustomer.CustomerId).ToList();
+                    var view_status_active = check.Where(s => s.Promise.Status != 2).Count();
+                    if (view_status_active!= 0)
+                    {
+                         JSRuntime.InvokeVoidAsync("alert_error");
+                    }
+                    else
+                    {
+                        guarantorNameA = _selectCustomer.FullName;
+                        guarantorANatId = _selectCustomer.NatId;
+                        phoneA = _selectCustomer.Phone;
+                        addressA = _selectCustomer.Address;
+                    }
+                  
                     StateHasChanged();
                 }
                 else
